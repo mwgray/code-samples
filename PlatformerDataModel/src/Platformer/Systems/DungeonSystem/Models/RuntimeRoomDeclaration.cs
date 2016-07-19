@@ -11,16 +11,8 @@ namespace Graymatter.Platformer.Model
 
         public RoomTypeKnowledge typeKnowledge;
 
-        // public LevelStorage level;
-
         public bool isOccupied;
 
-        // public List<DoorStorage> doors;
-
-        //public List<MonsterStorage> monsters;
-
-        // calculated property
-        [ObservesMember("monsters.state")]
         public abstract bool IsClear { get; }
 
         public interface ICommands
