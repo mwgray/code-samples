@@ -1,0 +1,17 @@
+// $Name$ ////////////////////////////////////////////////////////////
+[NonSerialized]
+public ReactiveProperty<$Type$> _$Name$Property = new ReactiveProperty<$Type$>($Constructor$);
+
+[ShowInInspector][InspectorDisabled]
+public $Type$ $Name$
+{
+    get { return _$Name$Property.Value; }        
+    private set { _$Name$Property.Value = value; }
+}
+
+private void Update$Name$()
+{
+    $Name$ = Calculate$Name$();
+}    
+    
+protected abstract $Type$ Calculate$Name$();

@@ -1,0 +1,33 @@
+// $Name$ ////////////////////////////////////////////////////////////
+[ShowInInspector][InspectorDisabled][InspectorCollapsedFoldout]
+public DataCollection<$Type$> $Name$
+{
+    get { return _$Name$; }
+    set
+    {
+        _$Name$ = value;
+
+        if($Name$ != null)
+        {
+            $Name$.BindingsCreator = $Name$BindingsCreator;
+            
+            {$Name$Bindings}
+        }
+    }
+}
+private DataCollection<$Type$> _$Name$;
+
+private List<IDisposable> $Name$BindingsCreator($Type$ value)
+{
+    if(value == default($Type$))
+    {
+        return new List<IDisposable>();
+    }
+
+    return new List<IDisposable>()
+            {
+                {$Name$SubBindings}
+            };
+}
+
+protected abstract void Update$Name$();

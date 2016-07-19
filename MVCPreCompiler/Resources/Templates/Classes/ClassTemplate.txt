@@ -1,0 +1,7 @@
+namespace $Namespace$
+{
+    public class $ClassName$: $ClassName$Base
+    {
+
+    }
+}

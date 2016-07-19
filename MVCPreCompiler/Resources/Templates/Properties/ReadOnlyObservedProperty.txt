@@ -1,0 +1,12 @@
+// $Name$ ////////////////////////////////////////////////////////////
+[NonSerialized]
+public ReactiveProperty<$Type$> _$Name$Property = new ReactiveProperty<$Type$>();
+    
+[ShowInInspector][InspectorDisabled]
+public $Type$ $Name$
+{
+    get { return _$Name$Property.Value; }
+    set { _$Name$Property.Value = value; 
+    {$Name$SubBindings} 
+    }
+}

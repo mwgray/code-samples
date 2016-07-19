@@ -1,0 +1,4 @@
+public abstract class $ClassName$Base: $BaseClass$
+{
+    {Methods}
+}

@@ -1,0 +1,21 @@
+public abstract class $ClassName$Base: $BaseClass$
+{
+    {Properties}
+   
+    {Collections}
+   
+    protected $ClassName$Base()
+    {
+        {CreateCollections}
+
+        {BindFields}
+
+        {BindMethods}
+
+        {InitializeCalculatedValues}
+    }
+
+    {Methods}
+    
+    {ControllerMethods}
+}

@@ -1,0 +1,23 @@
+public abstract class $ClassName$Base: $BaseClass$
+{
+#if IsBase
+    public $DataName$ $DataName$
+    {
+        get { return Data; }
+        set { Data = value; }
+    }
+#endif IsBase
+
+#if HasBindings
+    protected override void Bind()
+    {
+        base.Bind();
+
+        {ViewBindings}
+
+        Dirty();
+    }
+#endif HasBindings
+
+    {Methods}
+}

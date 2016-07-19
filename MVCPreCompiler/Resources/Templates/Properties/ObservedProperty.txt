@@ -1,0 +1,10 @@
+// $Name$ ////////////////////////////////////////////////////////////
+[NonSerialized]
+public ReactiveProperty<$Type$> _$Name$Property = new ReactiveProperty<$Type$>($Constructor$);
+    
+[SerializeField]
+public $Type$ $Name$
+{
+    get { return _$Name$Property.Value; }
+    set { _$Name$Property.Value = value; }
+}
