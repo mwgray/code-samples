@@ -1,7 +1,7 @@
 # code-samples
 More details are provided in each folder's accompanying README.md
 
-Here are some quick summaries.
+Here are some quick summaries:
 
 * Debugging facilities - when ever I start a new project or working on a new platform, I ensure the following systems are available.
  * A robust [Logging](/Debugging/Logging) system.
