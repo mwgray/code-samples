@@ -8,8 +8,6 @@ namespace core  {
 class Subscription
 {
 public:
-    bool mIsSubscribedToAll;
-
     Subscription();
 
     virtual ~Subscription();
@@ -27,6 +25,8 @@ public:
 protected:
     typedef std::map<CompactStringRelease, bool> SubscriptionMap;
     SubscriptionMap mSubscriptionMap;
+
+    bool mIsSubscribedToAll;
 
     virtual void addCategory(const CompactStringRelease& categoryName, bool initialValue);
 };
