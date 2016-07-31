@@ -54,7 +54,7 @@ namespace core {
         bool isIgnored = ignoreCategories.IsSubscribedTo(category);
         bool isError = priority <= kError;
 
-        return isError || (!isIgnored && (priority <= kWarn || IsSubscribedTo(category, true)));
+        return isError || (!isIgnored && (priority <= kWarn || IsSubscribedTo(category)));
     }
 
     Logger::ErrorBehavior Logger::log(Priority priority, const char* category, const char* message, ...)

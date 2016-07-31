@@ -37,7 +37,7 @@ namespace core {
 
     Logger::ErrorBehavior ScreenReporter::logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs)
     {
-        if(mEnabled && IsSubscribedTo(category, true))
+        if(mEnabled && IsSubscribedTo(category))
         {
             if(mCurrentCategory == mSubscriptionMap.end())
             {

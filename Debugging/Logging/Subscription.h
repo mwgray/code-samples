@@ -10,25 +10,21 @@ class Subscription
 public:
     Subscription();
 
-    virtual ~Subscription();
-
     void SubscribeTo(const CompactStringRelease& categoryName);
 
     void SubscribeToAll();
 
     void UnsubscribeFrom(const CompactStringRelease& categoryName);
 
-    bool ToggleCategory(const CompactStringRelease& categoryName);
+    void ToggleCategory(const CompactStringRelease& categoryName);
 
-    bool IsSubscribedTo(const CompactStringRelease& categoryName, bool addToList=false);
+    bool IsSubscribedTo(const CompactStringRelease& categoryName);
 
 protected:
     typedef std::map<CompactStringRelease, bool> SubscriptionMap;
     SubscriptionMap mSubscriptionMap;
 
     bool mIsSubscribedToAll;
-
-    virtual void addCategory(const CompactStringRelease& categoryName, bool initialValue);
 };
 
 } // namespace core

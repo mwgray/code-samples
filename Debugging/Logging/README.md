@@ -27,5 +27,5 @@ Some additional features:
 A note on macro programming... You may have notices that ConsoleLogger and ScreenReporter have some heavy macro programming.  While ugly and generally hard to follow, it's highly important to use for the logging systems:
 
 * __Global access__: throwing this in the pre-compiled header gives access to logging at all times
-* __Reduce bookkeeping__: using macros allows use of __FILE__, __LINE__, __FUNCTION__ macros, which lets the system embed that information at the call, removing the need for the caller to do so.
+* __Reduce bookkeeping__: using macros allows use of `__FILE__`, `__LINE__`, `__FUNCTION__` (TODO: cleanup) macros, which lets the system embed that information at the call, removing the need for the caller to do so.
 * __Removable__ - Finally, and probably the most important one, is that we can dead strip the entire logging system from the runtime.  When building a release build, we need all the compute cycles we can get, and even the overhead of calling an empty function is too much.  Dead stripping removes all the logging code from the executable, which frees up cycles and memory.  For a small embedded system like the Nintendo DS, the logging overhead can take up as much as a 1/4 of the runtime memory available, so ensuring it is removed is paramount. 

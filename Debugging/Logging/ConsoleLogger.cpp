@@ -23,7 +23,9 @@ namespace core {
 
     void ConsoleLogger::bindFunctions(LuaFunctionBinder* binder)
     {
-        (void)binder;
+        binder->bind("log", this, &ConsoleLogger::SubscribeTo);
+        binder->bind("logAll", this, &ConsoleLogger::SubscribeToAll);
+        binder->bind("ignore", this, &ConsoleLogger::ignore);
     }
 
     Logger::ErrorBehavior ConsoleLogger::logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs)

@@ -10,11 +10,6 @@ namespace core {
 
     }
 
-    Subscription::~Subscription()
-    {
-
-    }
-
     void Subscription::SubscribeTo(const CompactStringRelease& categoryName)
     {
         mSubscriptionMap[categoryName] = true;
@@ -30,20 +25,13 @@ namespace core {
         mSubscriptionMap[categoryName] = false;
     }
 
-    bool Subscription::IsSubscribedTo(const CompactStringRelease& categoryName, bool addToList)
+    bool Subscription::IsSubscribedTo(const CompactStringRelease& categoryName)
     {
-        // MEMORY_POOL("Subscription");
-
         bool isSubscribed = false;
 
         if(mIsSubscribedToAll)
         {
             isSubscribed = true;
-
-            if(addToList)
-            {
-                addCategory(categoryName, true);
-            }
         }
         else
         {
@@ -52,11 +40,6 @@ namespace core {
             if(i == mSubscriptionMap.end())
             {
                 isSubscribed = false;
-
-                if(addToList)
-                {
-                    addCategory(categoryName, false);
-                }
             }
             else
             {
@@ -67,20 +50,13 @@ namespace core {
         return isSubscribed;
     }
 
-    bool Subscription::ToggleCategory(const CompactStringRelease& categoryName)
+    void Subscription::ToggleCategory(const CompactStringRelease& categoryName)
     {
         SubscriptionMap::iterator i = mSubscriptionMap.find(categoryName);
         if(i != mSubscriptionMap.end())
         {
             i->second = !i->second;
-            return true;
         }
-        return false;
-    }
-
-    void Subscription::addCategory(const CompactStringRelease& categoryName, bool initialValue)
-    {
-        mSubscriptionMap[categoryName] = initialValue;
     }
 
 } // namespace core
