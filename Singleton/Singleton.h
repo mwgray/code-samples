@@ -3,33 +3,22 @@
 #ifndef __SINGLETON_H__
 #define __SINGLETON_H__
 
-#include "HumaNature/OS/ThreadDebugging.h"
-
-#if defined(__SNC__)
-#define HNS_FORCE_INLINE inline
-#elif defined(_MSC_VER)
-#define HNS_FORCE_INLINE __forceinline
-#elif defined(__GNUC__) || defined(__clang__)
-#define HNS_FORCE_INLINE __attribute__((always_inline))
-#else
-#define HNS_FORCE_INLINE inline
-#endif
-
 namespace core {
 
     // for tracking all singletons at run-time
-    class SingletonHolderBase
+    class SingletonBase
     {
     public:
-        static std::map<std::string, SingletonHolderBase*>* sSingletonMap;
+        static std::map<std::string, SingletonBase*>* sSingletonMap;
     };
 
     template<typename SingletonType>
     class Singleton
-        : public SingletonHolderBase
+        : public SingletonBase
     {
     protected:
         static SingletonType* sInstance;
+
     public:
         ///  Returns a reference to singleton object
         HNS_FORCE_INLINE static SingletonType& Instance()
@@ -37,6 +26,7 @@ namespace core {
             return *sInstance;
         }
 
+        ///  Returns a pointer to singleton object
         HNS_FORCE_INLINE static SingletonType* InstancePtr()
         {
             return sInstance;
@@ -44,20 +34,21 @@ namespace core {
 
         Singleton()
         {
-            (*SingletonHolderBase::sSingletonMap)[GetCoreTypeName<SingletonType>()] = this;
+            // remove from global list
+            (*SingletonBase::sSingletonMap)[GetCoreTypeName<SingletonType>()] = this;
         }
 
         virtual ~Singleton()
         {
-            EXPECTMAINTHREAD;
             if (sInstance == this)
             {
-                auto it = SingletonHolderBase::sSingletonMap->find(GetCoreTypeName<SingletonType>());
-                SingletonHolderBase::sSingletonMap->erase(it);
+                auto it = SingletonBase::sSingletonMap->find(GetCoreTypeName<SingletonType>());
+                SingletonBase::sSingletonMap->erase(it);
                 sInstance = nullptr;
             }
         }
 
+        // explicitly create
         static SingletonType& Create()
         {
             if(sInstance == nullptr)
@@ -67,8 +58,9 @@ namespace core {
             return *sInstance;
         }
 
+        // explicitly destroy
         static void Destroy()
-        { 
+        {
             if (sInstance)
             {
                 delete sInstance;

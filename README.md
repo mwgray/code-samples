@@ -24,3 +24,59 @@ Game projects typically have millions of LoC and long compile build times, so ea
 Similarly, when a game is shipped, every cycle counts, so being able to strip a lot of the debugging code out of the project is a necessity.  To this end a lot of macro/template meta-programming is used to configure what code is present at compile time.
 
 My philosophy is to make the end code readable and the setup code complex.
+
+# System Desing
+* Game dev doesn't have a lot of UI options available(at least not back)
+* Would probably just get something off the shelf these days
+* 
+
+# Logging
+* Category
+* Severity
+* Platform separation
+* Removabiltiy
+* Call location tracking
+
+# Binding
+* Templated
+* Runtime tweaing server
+* expose to lua
+
+# Scripting
+* Boot time lua configuration
+* Runtime variable updating
+
+# Process
+* Self containted execution contexts
+* can be done in batches
+* used in conjunctino with Dependency graph to create boot processes
+
+# Dependency Graph
+* Author a list of dependnecies
+* Show editor image
+* use editor to create lua file which establishes dependencies on boot
+
+# Singleton
+* Simple Common pattern, but almost always needed
+
+# Tweener
+* A simple animation tweening class
+* Collection of easing equations
+* Callbacks
+* Paremererized variables thingy
+
+#MVC
+* Code annotations
+* Detect dependencies
+* Code generator
+* Runtime uses subscriptsion to update dependeencies invisible to the user, be it caclcuatioed properties or views of the element
+
+# UI
+* Rather old UI system, but basics are there
+* Go file by file ensure a decent structure is there
+* watch out for function based events
+
+# Word Cache
+* point out the algorithm, describe it
+* talk about tradeoffs, not big eough for speed
+* might use a trie if written again
