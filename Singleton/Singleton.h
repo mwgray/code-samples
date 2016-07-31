@@ -85,30 +85,7 @@ namespace core {
         Singleton(const Singleton&);                 // Prevent copy-construction
         Singleton& operator=(const Singleton&);      // Prevent assignment
     };
-
-    /// Used to override a previous Singleton's instance pointer /////////////
-
-    template<
-        typename SingletonClass, 
-        typename ParentSingletonClass
-    >
-    inline void OverrideSingleton(SingletonClass* inst)
-    {
-        ParentSingletonClass::Destroy();
-        ParentSingletonClass::UseInstance(inst);
-        SingletonClass::UseInstance(inst);
-    };
-
-} // namespace core
-
-#define OVERRIDE_SINGLETON(SingletonType) \
-    using Singleton<SingletonType>::Create; \
-    using Singleton<SingletonType>::Destroy; \
-    using Singleton<SingletonType>::Instance; \
-    using Singleton<SingletonType>::InstancePtr; \
-    using Singleton<SingletonType>::UseInstance
     
-#define SINGLETON_DATA(Namespace, SingletonType) \
-    template<> Namespace::SingletonType* core::Singleton < Namespace::SingletonType > :: sInstance = nullptr
+} // namespace core
 
 #endif // __SINGLETON_H__
