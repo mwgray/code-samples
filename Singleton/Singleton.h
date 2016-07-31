@@ -20,14 +20,14 @@ namespace core {
         static SingletonType* sInstance;
 
     public:
-        ///  Returns a reference to singleton object
-        HNS_FORCE_INLINE static SingletonType& Instance()
+        //  Returns a reference to singleton object
+        static SingletonType& Instance()
         {
             return *sInstance;
         }
 
-        ///  Returns a pointer to singleton object
-        HNS_FORCE_INLINE static SingletonType* InstancePtr()
+        //  Returns a pointer to singleton object
+        static SingletonType* InstancePtr()
         {
             return sInstance;
         }
