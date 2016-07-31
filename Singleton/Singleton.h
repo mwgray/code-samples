@@ -75,15 +75,20 @@ namespace core {
                 sInstance = nullptr;
             }
         }
-
-        static void UseInstance(SingletonType* inst)
+        
+        // use to override a singleton with a new one
+        // note- does not dispose of old one
+        static void Override(SingletonType* inst)
         {
             sInstance = inst;
         }
 
     private:
-        Singleton(const Singleton&);                 // Prevent copy-construction
-        Singleton& operator=(const Singleton&);      // Prevent assignment
+        // Prevent copy-construction
+        Singleton(const Singleton&);                 
+        
+        // Prevent assignment
+        Singleton& operator=(const Singleton&);      
     };
     
 } // namespace core
