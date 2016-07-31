@@ -8,4 +8,4 @@ All of the work is done in the h.  I also added a global map which keeps track o
  
 Two items of note:
 * Construction and destruction is update to the calling code.  In game development there's a need for very strict ordering of construction, so it's often preferable to do so explicitly, as opposed to letting the compiler choose when.
-* Singleton's can be overridden in this system.  This comes in handy in case you have to use a different set of logging functions for a different platform(or remove logging altogether).  
+* Singletons can be overridden in this system.  This comes in handy in case you have to use a different set of logging functions for a different platform(or remove logging altogether).  
