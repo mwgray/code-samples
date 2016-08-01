@@ -16,7 +16,7 @@ namespace core {
         
         virtual ~ConsoleLogger();
 
-        virtual void bindFunctions(LuaFunctionBinder* binder);
+        virtual void bindFunctions(LuaContext* context);
         
         virtual ErrorBehavior logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs);
 

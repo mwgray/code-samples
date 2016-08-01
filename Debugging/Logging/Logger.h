@@ -5,7 +5,7 @@
 
 namespace core  {
     
-    class LuaFunctionBinder;
+    class LuaContext;
     
     class Logger
         : public Subscription
@@ -31,7 +31,7 @@ namespace core  {
         
         virtual ~Logger();
 
-        virtual void bindFunctions(LuaFunctionBinder* binder) = 0;
+        virtual void bindFunctions(LuaContext* context) = 0;
         
         virtual ErrorBehavior logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs) = 0;
 

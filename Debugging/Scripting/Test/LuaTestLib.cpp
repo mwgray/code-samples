@@ -39,7 +39,7 @@ namespace core {
         mLuaBinding->executeString(luaCode);
     }
 
-    void LuaTestLib::bind(LuaFunctionBinder* luaBinding)
+    void LuaTestLib::bind(LuaContext* luaBinding)
     {
         assertThat(luaBinding, isNotNull);
 

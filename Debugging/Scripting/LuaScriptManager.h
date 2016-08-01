@@ -3,11 +3,11 @@
 #ifndef __LUASCRIPTMANAGER_H__
 #define __LUASCRIPTMANAGER_H__
 
-#include "LuaFunctionBinder.h"
+#include "LuaContext.h"
 
 namespace core {
 
-    class LuaFunctionBinder;
+    class LuaContext;
 
     class LuaScriptManager
         : public MemoryObject
@@ -22,18 +22,18 @@ namespace core {
 
         void runScriptString(const char* commandBuffer);
 
-        inline LuaFunctionBinder* getGlobalContext()
+        inline LuaContext* getGlobalContext()
         {
             return getContext("global");
         }
 
-        LuaFunctionBinder* getContext(const char* context);
+        LuaContext* getContext(const char* context);
         
         bool freeContext(const char* context);
 
     protected:
-        typedef std::map<std::string, LuaFunctionBinder*> BinderMap;
-        BinderMap mBinderMap;
+        typedef std::map<std::string, LuaContext*> ContextMap;
+        ContextMap mContextMap;
 
         void bindToDebug();
     };

@@ -1,7 +1,7 @@
 // Copyright 2006-12 HumaNature Studios Inc.
 
-#ifndef __LUAFUNCTIONBINDER_H__
-#define __LUAFUNCTIONBINDER_H__
+#ifndef __LUAFUNCTIONCONTEXT_H__
+#define __LUAFUNCTIONCONTEXT_H__
 
 #include "CoreLuaScript.h"
 
@@ -10,13 +10,13 @@
 
 namespace core {
 
-    class LuaFunctionBinder
+    class LuaContext
         : public CoreLuaScript        
     {
     public:
-        LuaFunctionBinder(lua_State* preAllocatedState = nullptr);
+        LuaContext(lua_State* preAllocatedState = nullptr);
 
-        virtual ~LuaFunctionBinder();
+        virtual ~LuaContext();
         //////////////////////////////////////////////////////////////////////////
         ///  Global functions
         //////////////////////////////////////////////////////////////////////////
@@ -114,4 +114,4 @@ namespace core {
 
 } // namespace core
 
-#endif // __LUAFUNCTIONBINDER_H__
+#endif // __LUAFUNCTIONCONTEXT_H__

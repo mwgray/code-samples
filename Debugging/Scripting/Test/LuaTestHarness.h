@@ -32,7 +32,7 @@ namespace core {
         LuaTestLibList mLuaTestLibList;
         Scaleform::GFx::Value mCheatUIHarness;
 
-        LuaFunctionBinder* mLuaBinding;
+        LuaContext* mLuaBinding;
 
         void createScript(const char* path);
 

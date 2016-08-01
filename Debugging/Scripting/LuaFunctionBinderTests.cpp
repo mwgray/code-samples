@@ -2,7 +2,7 @@
 
 #include "CorePch.h"
 
-#include "LuaFunctionBinder.h"
+#include "LuaContext.h"
 
 // extern and call testlua to use; TODO.m - probably should unit test this huh...
 
@@ -32,7 +32,7 @@ namespace core {
 
     void testLua()
     {
-        LuaFunctionBinder c;
+        LuaContext c;
 
         c.bind("set0", &t, &Test::set0);
         c.bind("set1", &t, &Test::set1);

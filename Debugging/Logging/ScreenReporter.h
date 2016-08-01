@@ -22,7 +22,7 @@ namespace core {
         
         void Finalize();
 
-        void bindFunctions(LuaFunctionBinder* binder);
+        void bindFunctions(LuaContext* context);
 
         virtual ErrorBehavior logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs);
 

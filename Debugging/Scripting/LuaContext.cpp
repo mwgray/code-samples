@@ -1,17 +1,17 @@
 // Copyright 2006-12 HumaNature Studios Inc.
 
 #include "CorePch.h"
-#include "LuaFunctionBinder.h"
+#include "LuaContext.h"
 
 #include "LuaScriptManager.h"
 
 namespace core {
-    LuaFunctionBinder::LuaFunctionBinder(lua_State* preAllocatedState)
+    LuaContext::LuaContext(lua_State* preAllocatedState)
         : CoreLuaScript(preAllocatedState)
     {
     }
 
-    LuaFunctionBinder::~LuaFunctionBinder()
+    LuaContext::~LuaContext()
     {
         for(auto iter = mBindings.begin(); iter != mBindings.end(); ++iter)
         {
@@ -19,7 +19,7 @@ namespace core {
         }
     }
 
-    void LuaFunctionBinder::call(const std::string& name)
+    void LuaContext::call(const std::string& name)
     {
         BindingMap::iterator find = mBindings.find(name);
 
@@ -33,7 +33,7 @@ namespace core {
         }
     }
 
-    void LuaFunctionBinder::unbind(const std::string& name)
+    void LuaContext::unbind(const std::string& name)
     {
         BindingMap::iterator find = mBindings.find(name);
 
@@ -48,7 +48,7 @@ namespace core {
         }
     }
 
-    void LuaFunctionBinder::setBinding(const std::string& name, LuaFunctionBinding* binding)
+    void LuaContext::setBinding(const std::string& name, LuaFunctionBinding* binding)
     {
         BindingMap::iterator find = mBindings.find(name);
 
@@ -97,13 +97,13 @@ namespace core {
         }
     }
 
-    int LuaFunctionBinder::luaEntryFunction(lua_State* L)
+    int LuaContext::luaEntryFunction(lua_State* L)
     {
         const char* functionName = lua_tostring(L, lua_upvalueindex(1));
-        void* binderPointer = lua_touserdata(L, lua_upvalueindex(2));
+        void* contextPointer = lua_touserdata(L, lua_upvalueindex(2));
 
-        LuaFunctionBinder* binder = static_cast<LuaFunctionBinder*>(binderPointer);
-        binder->call(functionName);
+        LuaContext* context = static_cast<LuaContext*>(contextPointer);
+        context->call(functionName);
 
         return 1;
     }

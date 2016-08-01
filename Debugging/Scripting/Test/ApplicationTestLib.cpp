@@ -22,7 +22,7 @@ namespace core {
 
         }
 
-        virtual void bind(LuaFunctionBinder* luaBinding)
+        virtual void bind(LuaContext* luaBinding)
         {
             LuaTestLib::bind(luaBinding);
 

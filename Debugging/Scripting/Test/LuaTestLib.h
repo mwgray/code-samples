@@ -3,7 +3,7 @@
 #ifndef __LUATESTLIB_H__
 #define __LUATESTLIB_H__
 
-#include "Scripting/LuaFunctionBinder.h"
+#include "Scripting/LuaContext.h"
 
 namespace core {
 
@@ -21,9 +21,9 @@ namespace core {
         virtual void update(float deltaSeconds) { UNUSED_PARAM(deltaSeconds); }
 
     protected:
-        LuaFunctionBinder* mLuaBinding;
+        LuaContext* mLuaBinding;
 
-        virtual void bind(LuaFunctionBinder* luaBinding);
+        virtual void bind(LuaContext* luaBinding);
 
         // for logging back to to cheats & console
         void log(const char* message, ...);

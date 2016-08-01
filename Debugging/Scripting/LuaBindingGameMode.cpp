@@ -4,7 +4,7 @@
 
 #include "GameMode/GameMode.h"
 
-#include "LuaFunctionBinder.h"
+#include "LuaContext.h"
 
 namespace core {
 
@@ -16,21 +16,21 @@ namespace core {
         {
             GameMode::Initialize(properties);
 
-            LuaFunctionBinder binder;
+            LuaContext context;
 
             const char* createObjectScript = "object = { builtInFunction = function() return 2.3; end; subobject = { builtInFunction = function() return 4.5; end; }; };";            
-            binder.executeString(createObjectScript);
+            context.executeString(createObjectScript);
 
-            binder.bind("object.boundFunction", this, &LuaBindingGameMode::ReturnFloat);
-            binder.bind("object.subobject.boundFunction", this, &LuaBindingGameMode::ReturnSubFloat);
+            context.bind("object.boundFunction", this, &LuaBindingGameMode::ReturnFloat);
+            context.bind("object.subobject.boundFunction", this, &LuaBindingGameMode::ReturnSubFloat);
 
-            binder.executeString("print('built-in returned:'..object.builtInFunction());");
-            binder.executeString("print('built-in sub returned:'..object.subobject.builtInFunction());");
+            context.executeString("print('built-in returned:'..object.builtInFunction());");
+            context.executeString("print('built-in sub returned:'..object.subobject.builtInFunction());");
 
-            binder.executeString("print(object.boundFunction);");
+            context.executeString("print(object.boundFunction);");
 
-            binder.executeString("print('bound returned: '..object.boundFunction());");
-            binder.executeString("print('bound sub returned: '..object.subobject.boundFunction());");
+            context.executeString("print('bound returned: '..object.boundFunction());");
+            context.executeString("print('bound sub returned: '..object.subobject.boundFunction());");
         }
 
         float ReturnFloat()

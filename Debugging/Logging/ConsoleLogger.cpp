@@ -21,11 +21,11 @@ namespace core {
         PlatformPrint::finalize();
     }
 
-    void ConsoleLogger::bindFunctions(LuaFunctionBinder* binder)
+    void ConsoleLogger::bindFunctions(LuaContext* context)
     {
-        binder->bind("log", this, &ConsoleLogger::SubscribeTo);
-        binder->bind("logAll", this, &ConsoleLogger::SubscribeToAll);
-        binder->bind("ignore", this, &ConsoleLogger::ignore);
+        context->bind("log", this, &ConsoleLogger::SubscribeTo);
+        context->bind("logAll", this, &ConsoleLogger::SubscribeToAll);
+        context->bind("ignore", this, &ConsoleLogger::ignore);
     }
 
     Logger::ErrorBehavior ConsoleLogger::logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs)

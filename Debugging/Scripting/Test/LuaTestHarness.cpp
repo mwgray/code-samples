@@ -97,7 +97,7 @@ namespace core {
 
     void LuaTestHarness::createScript(const char* path)
     {
-        mLuaBinding = HNS_NEW(LuaFunctionBinder);
+        mLuaBinding = HNS_NEW(LuaContext);
 #ifdef __HNS_LOGGING_ENABLED__
         ConsoleLogger::Instance().bindFunctions(mLuaBinding);
 #endif

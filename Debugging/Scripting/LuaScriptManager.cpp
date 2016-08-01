@@ -64,7 +64,7 @@ namespace core {
 
     void LuaScriptManager::finalize()
     {
-        for (auto iter = mBinderMap.begin(); iter != mBinderMap.end(); ++iter)
+        for (auto iter = mContextMap.begin(); iter != mContextMap.end(); ++iter)
         {
             logInfo("Lua", "Bound context: '%s'", iter->first.c_str());
 
@@ -101,44 +101,44 @@ namespace core {
         }
     }
 
-    LuaFunctionBinder* LuaScriptManager::getContext(const char* context)
+    LuaContext* LuaScriptManager::getContext(const char* context)
     {
-        LuaFunctionBinder* binder = nullptr;
-        BinderMap::iterator find = mBinderMap.find(context);
+        LuaContext* context = nullptr;
+        ContextMap::iterator find = mContextMap.find(context);
 
-        if(find == mBinderMap.end())
+        if(find == mContextMap.end())
         {
-            binder = HNS_NEW(LuaFunctionBinder)();
-            mBinderMap[context] = binder;
+            context = HNS_NEW(LuaContext)();
+            mContextMap[context] = context;
         }
         else
         {
-            binder = find->second;
+            context = find->second;
         }
 
-        return binder;
+        return context;
     }
 
     void LuaScriptManager::bindToDebug()
     {
 #ifdef __HNS_LOGGING_ENABLED__
-        LuaFunctionBinder* binder = getGlobalContext();
+        LuaContext* context = getGlobalContext();
 
-        ConsoleLogger::Instance().bindFunctions(binder);
-        ScreenReporter::Instance().bindFunctions(binder);
-        ScreenText::Instance().bindFunctions(binder);
-        DebugDraw::Instance().bindFunctions(binder);
+        ConsoleLogger::Instance().bindFunctions(context);
+        ScreenReporter::Instance().bindFunctions(context);
+        ScreenText::Instance().bindFunctions(context);
+        DebugDraw::Instance().bindFunctions(context);
 #endif
     }
 
     bool LuaScriptManager::freeContext(const char* context)
     {
-        BinderMap::iterator find = mBinderMap.find(context);
+        ContextMap::iterator find = mContextMap.find(context);
 
-        if(find != mBinderMap.end())
+        if(find != mContextMap.end())
         {
             SafeDelete(find->second);
-            mBinderMap.erase(find);
+            mContextMap.erase(find);
 
             return true;
         }

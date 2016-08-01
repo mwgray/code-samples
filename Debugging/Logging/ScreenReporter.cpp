@@ -5,7 +5,7 @@
 #include "ScreenReporter.h"
 
 #include "Input/InputManager.h"
-#include "Scripting/LuaFunctionBinder.h"
+#include "Scripting/LuaContext.h"
 
 DEFINE_SINGLETON_TYPE(core, ScreenReporter);
 
@@ -28,11 +28,11 @@ namespace core {
         InputManager::Instance()->UnregisterEventListener(this);
     }
 
-    void ScreenReporter::bindFunctions(LuaFunctionBinder* binder)
+    void ScreenReporter::bindFunctions(LuaContext* context)
     {
-        binder->bind("report", this, &ScreenReporter::SubscribeTo);
-        binder->bind("reportAll", this, &ScreenReporter::SubscribeToAll);
-        binder->bind("toggleReporter", this, &ScreenReporter::toggleEnabled);
+        context->bind("report", this, &ScreenReporter::SubscribeTo);
+        context->bind("reportAll", this, &ScreenReporter::SubscribeToAll);
+        context->bind("toggleReporter", this, &ScreenReporter::toggleEnabled);
     }
 
     Logger::ErrorBehavior ScreenReporter::logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs)
