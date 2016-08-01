@@ -1,18 +1,18 @@
 // Copyright 2006-12 HumaNature Studios Inc.
 
-#ifndef __LUAGLOBALFUNCTIONBINDINGS_H__
-#define __LUAGLOBALFUNCTIONBINDINGS_H__
+#ifndef __LuaGlobalProcedureBindingS_H__
+#define __LuaGlobalProcedureBindingS_H__
 
 #include "LuaFunctionBinding.h"
 
 namespace core {
 
     template<typename ReturnType>
-    class LuaGlobalFunctionBinding0
+    class LuaGlobalProcedureBinding0
         : public LuaFunctionBinding
     {
     public:
-        LuaGlobalFunctionBinding0(ReturnType (*globalFunction)())
+        LuaGlobalProcedureBinding0(ReturnType (*globalFunction)())
             : mGlobalFunction(globalFunction)
         {
 
@@ -31,11 +31,11 @@ namespace core {
     };
 
     template<typename ReturnType, typename ParamType0>
-    class LuaGlobalFunctionBinding1
+    class LuaGlobalProcedureBinding1
         : public LuaFunctionBinding
     {
     public:
-        LuaGlobalFunctionBinding1(ReturnType (*globalFunction)(ParamType0))
+        LuaGlobalProcedureBinding1(ReturnType (*globalFunction)(ParamType0))
             : mGlobalFunction(globalFunction)
         {
 
@@ -54,11 +54,11 @@ namespace core {
     };
 
     template <typename ReturnType, typename ParamType0, typename ParamType1>
-    class LuaGlobalFunctionBinding2
+    class LuaGlobalProcedureBinding2
         : public LuaFunctionBinding
     {
     public:
-        LuaGlobalFunctionBinding2(ReturnType (*globalFunction)(ParamType0, ParamType1))
+        LuaGlobalProcedureBinding2(ReturnType (*globalFunction)(ParamType0, ParamType1))
             : mGlobalFunction(globalFunction)
         {
 
@@ -78,11 +78,11 @@ namespace core {
     };
 
     template <typename ReturnType, typename ParamType0, typename ParamType1, typename ParamType2>
-    class LuaGlobalFunctionBinding3
+    class LuaGlobalProcedureBinding3
         : public LuaFunctionBinding
     {
     public:
-        LuaGlobalFunctionBinding3(ReturnType (*globalFunction)(ParamType0, ParamType1, ParamType2))
+        LuaGlobalProcedureBinding3(ReturnType (*globalFunction)(ParamType0, ParamType1, ParamType2))
             : mGlobalFunction(globalFunction)
         {
 
@@ -103,11 +103,11 @@ namespace core {
     };
 
     template <typename ReturnType, typename ParamType0, typename ParamType1, typename ParamType2, typename ParamType3>
-    class LuaGlobalFunctionBinding4
+    class LuaGlobalProcedureBinding4
         : public LuaFunctionBinding
     {
     public:
-        LuaGlobalFunctionBinding4(ReturnType (*globalFunction)(ParamType0, ParamType1, ParamType2, ParamType3))
+        LuaGlobalProcedureBinding4(ReturnType (*globalFunction)(ParamType0, ParamType1, ParamType2, ParamType3))
             : mGlobalFunction(globalFunction)
         {
 
@@ -129,11 +129,11 @@ namespace core {
     };
 
     template <typename ReturnType, typename ParamType0, typename ParamType1, typename ParamType2, typename ParamType3, typename ParamType4>
-    class LuaGlobalFunctionBinding5
+    class LuaGlobalProcedureBinding5
         : public LuaFunctionBinding
     {
     public:
-        LuaGlobalFunctionBinding5(ReturnType (*globalFunction)(ParamType0, ParamType1, ParamType2, ParamType3, ParamType4))
+        LuaGlobalProcedureBinding5(ReturnType (*globalFunction)(ParamType0, ParamType1, ParamType2, ParamType3, ParamType4))
             : mGlobalFunction(globalFunction)
         {
 
@@ -157,4 +157,4 @@ namespace core {
 
 } // namespace core
 
-#endif // __LUAGLOBALFUNCTIONBINDINGS_H__
+#endif // __LuaGlobalProcedureBindingS_H__

@@ -12,23 +12,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfa642de-0e9a-4e27-a33d-04bd586ddbff" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinder.cpp" afterPath="$PROJECT_DIR$/Debugging/Scripting/LuaContext.cpp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinder.h" afterPath="$PROJECT_DIR$/Debugging/Scripting/LuaContext.h" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/ApplicationTestLib.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestHarness.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestHarness.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestLib.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestLib.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/TestHarnessGameMode.cpp" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinderTests.cpp" afterPath="$PROJECT_DIR$/Debugging/Scripting/LuaContextTests.cpp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Debugging/Scripting/LuaGlobalFunctionBindings.h" afterPath="$PROJECT_DIR$/Debugging/Scripting/LuaGlobalProcedureBindings.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Logging/ConsoleLogger.cpp" afterPath="$PROJECT_DIR$/Debugging/Logging/ConsoleLogger.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Logging/ConsoleLogger.h" afterPath="$PROJECT_DIR$/Debugging/Logging/ConsoleLogger.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Logging/Logger.h" afterPath="$PROJECT_DIR$/Debugging/Logging/Logger.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Logging/ScreenReporter.cpp" afterPath="$PROJECT_DIR$/Debugging/Logging/ScreenReporter.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Logging/ScreenReporter.h" afterPath="$PROJECT_DIR$/Debugging/Logging/ScreenReporter.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/LuaBindingGameMode.cpp" afterPath="$PROJECT_DIR$/Debugging/Scripting/LuaBindingGameMode.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinderTests.cpp" afterPath="$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinderTests.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/LuaScriptManager.cpp" afterPath="$PROJECT_DIR$/Debugging/Scripting/LuaScriptManager.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/LuaScriptManager.h" afterPath="$PROJECT_DIR$/Debugging/Scripting/LuaScriptManager.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/ApplicationTestLib.cpp" afterPath="$PROJECT_DIR$/Debugging/Scripting/Test/ApplicationTestLib.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestHarness.cpp" afterPath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestHarness.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestHarness.h" afterPath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestHarness.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestLib.cpp" afterPath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestLib.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestLib.h" afterPath="$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestLib.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/CoreLuaScript.h" afterPath="$PROJECT_DIR$/Debugging/Scripting/CoreLuaScript.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Debugging/Scripting/LuaContext.h" afterPath="$PROJECT_DIR$/Debugging/Scripting/LuaContext.h" />
     </list>
     <ignored path="code-samples.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,11 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ConsoleLogger.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Debugging/Logging/ConsoleLogger.cpp">
+      <file leaf-file-name="LuaMemberProcedureBindings.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaMemberProcedureBindings.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state relative-caret-position="630">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -62,7 +56,7 @@
       <file leaf-file-name="LuaContext.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaContext.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
+            <state relative-caret-position="1110">
               <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
               <folding />
             </state>
@@ -72,15 +66,15 @@
       <file leaf-file-name="LuaContext.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaContext.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LuaFunctionBinderTests.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinderTests.cpp">
+      <file leaf-file-name="LuaContextTests.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaContextTests.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -92,41 +86,52 @@
       <file leaf-file-name="LuaFunctionBinding.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinding.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="15">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LuaGlobalFunctionBindings.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaGlobalFunctionBindings.h">
+      <file leaf-file-name="LuaBindingGameMode.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaBindingGameMode.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+            <state relative-caret-position="525">
+              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoreLuaScript.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/CoreLuaScript.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LuaMemberFunctionBindings.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaMemberFunctionBindings.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1269">
+              <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LuaGlobalProcedureBindings.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaGlobalProcedureBindings.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1269">
+              <caret line="123" column="18" selection-start-line="123" selection-start-column="18" selection-end-line="123" selection-end-column="18" />
               <folding>
-                <element signature="e#671#713#0" expanded="true" />
+                <element signature="e#675#717#0" expanded="true" />
+                <element signature="e#1302#1365#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LuaMemberProcedureBindings.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaMemberProcedureBindings.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LuaScriptManager.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaScriptManager.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -134,8 +139,8 @@
       <file leaf-file-name="LuaFunctionBinding.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinding.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+            <state relative-caret-position="480">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -154,6 +159,9 @@
         <option value="$PROJECT_DIR$/Debugging/Logging/README.md" />
         <option value="$PROJECT_DIR$/Debugging/Logging/ConsoleLogger.cpp" />
         <option value="$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinder.cpp" />
+        <option value="$PROJECT_DIR$/Debugging/Scripting/LuaContext.h" />
+        <option value="$PROJECT_DIR$/Debugging/Scripting/CoreLuaScript.h" />
+        <option value="$PROJECT_DIR$/Debugging/Scripting/Test/ApplicationTestLib.cpp" />
       </list>
     </option>
   </component>
@@ -187,8 +195,8 @@
       <showLibraryContents />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
+      <autoscrollToSource ProjectPane="true" />
+      <autoscrollFromSource ProjectPane="true" />
       <sortByType />
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
@@ -634,14 +642,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp" />
-    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaScriptManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Debugging/Logging/README.md">
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
@@ -702,23 +702,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Debugging/Logging/ConsoleLogger.cpp">
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/CoreLuaScript.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        <state relative-caret-position="345">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaContext.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaContext.h">
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestLib.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -726,7 +718,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinderTests.cpp">
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestLib.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestHarness.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/Test/LuaTestHarness.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/Test/ApplicationTestLib.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Logging/Logger.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Logging/Logger.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Logging/LogMarker.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Logging/ConsoleLogger.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Logging/ConsoleLogger.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="62" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaScriptManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Process/DummyProcess.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaScriptManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -736,31 +816,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinding.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinding.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaGlobalFunctionBindings.h">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
-          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaGlobalProcedureBindings.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1269">
+          <caret line="123" column="18" selection-start-line="123" selection-start-column="18" selection-end-line="123" selection-end-column="18" />
           <folding>
-            <element signature="e#671#713#0" expanded="true" />
+            <element signature="e#675#717#0" expanded="true" />
+            <element signature="e#1302#1365#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaMemberFunctionBindings.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1269">
+          <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaMemberProcedureBindings.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/Test/TestHarnessGameMode.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -768,10 +857,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaScriptManager.h">
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/CoreLuaScript.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        <state relative-caret-position="570">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaContext.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaContext.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaFunctionBinding.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaContextTests.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Debugging/Scripting/LuaBindingGameMode.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
           <folding />
         </state>
       </provider>

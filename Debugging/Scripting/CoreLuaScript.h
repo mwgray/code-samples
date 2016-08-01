@@ -22,4 +22,5 @@ namespace core {
     };
 
 } // namespace core
+
 #endif // __CORELUASCRIPT_H__

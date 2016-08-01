@@ -5,7 +5,7 @@
 
 #include "CoreLuaScript.h"
 
-#include "LuaGlobalFunctionBindings.h"
+#include "LuaGlobalProcedureBindings.h"
 #include "LuaMemberFunctionBindings.h"
 
 namespace core {
@@ -23,37 +23,37 @@ namespace core {
         template <typename ReturnType>
         void bindGlobal(const std::string& name, ReturnType (*globalFunction)())
         {
-            setBinding(name, new LuaGlobalFunctionBinding0<ReturnType>(globalFunction));
+            setBinding(name, new LuaGlobalProcedureBinding0<ReturnType>(globalFunction));
         }
 
         template<typename ReturnType, typename P0>
         void bindGlobal(const std::string& name, ReturnType (*globalFunction)(P0))
         {
-            setBinding(name, new LuaGlobalFunctionBinding1<ReturnType, P0>(globalFunction));
+            setBinding(name, new LuaGlobalProcedureBinding1<ReturnType, P0>(globalFunction));
         }
 
         template<typename ReturnType, typename P0, typename P1>
         void bindGlobal(const std::string& name, ReturnType (*globalFunction)(P0, P1))
         {
-            setBinding(name, new LuaGlobalFunctionBinding2<ReturnType, P0, P1>(globalFunction));
+            setBinding(name, new LuaGlobalProcedureBinding2<ReturnType, P0, P1>(globalFunction));
         }
 
         template<typename ReturnType, typename P0, typename P1, typename P2>
         void bindGlobal(const std::string& name, ReturnType (*globalFunction)(P0, P1, P2))
         {
-            setBinding(name, new LuaGlobalFunctionBinding3<ReturnType, P0, P1, P2>(globalFunction));
+            setBinding(name, new LuaGlobalProcedureBinding3<ReturnType, P0, P1, P2>(globalFunction));
         }
 
         template<typename ReturnType, typename P0, typename P1, typename P2, typename P3>
         void bindGlobal(const std::string& name, ReturnType (*globalFunction)(P0, P1, P2, P3))
         {
-            setBinding(name, new LuaGlobalFunctionBinding4<ReturnType, P0, P1, P2, P3>(globalFunction));
+            setBinding(name, new LuaGlobalProcedureBinding4<ReturnType, P0, P1, P2, P3>(globalFunction));
         }
 
         template<typename ReturnType, typename P0, typename P1, typename P2, typename P3, typename P4>
         void bindGlobal(const std::string& name, ReturnType (*globalFunction)(P0, P1, P2, P3, P4))
         {
-            setBinding(name, new LuaGlobalFunctionBinding5<ReturnType, P0, P1, P2, P3, P4>(globalFunction));
+            setBinding(name, new LuaGlobalProcedureBinding5<ReturnType, P0, P1, P2, P3, P4>(globalFunction));
         }
         
         //////////////////////////////////////////////////////////////////////////
