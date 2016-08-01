@@ -2,8 +2,8 @@
 
 This is a collection of files that create a logging system.  Two concrete implementations are included:
 
-  * __Game/Console Logger__: A simple TTY logger.  TODO: merge these two 
-  * __Screen Reporter__: An on screen logger.  Log calls are rendered on top of the render target, and must be called every frame.  This allows for viewing specific values change over time, which can be easier to read when running at 60fps.  It also reduces console log spam, since these calls can be seen on screen, as opposed to in bulk in the console log.
+  * __ConsoleLogger__: A simple TTY logger. 
+  * __ScreenReporter__: An on screen logger.  Log calls are rendered on top of the render target, and must be called every frame.  This allows for viewing specific values change over time, which can be easier to read when running at 60fps.  It also reduces console log spam, since these calls can be seen on screen, as opposed to in bulk in the console log.
 
 The basic usage comes down to logging call, which consists of the the following components:
 
@@ -24,7 +24,7 @@ Some additional features:
 * __Break behavior__ can be configured.  You can choose to break on a log statement, continue, or ignore all future logs of this type.  This is helpful in case there is a breaking log that you wish to stop seeing/breaking, like if an art resource is missing.
 * __Scripting__ - All logging subscriptions commands are exposed to the scripting TODO: LINK system, which allows for per-user configuration at runtime.
 
-A note on macro programming... You may have notices that ConsoleLogger and ScreenReporter have some heavy macro programming.  While ugly and generally hard to follow, it's highly important to use for the logging systems:
+A note on macro programming... You may have notices that ConsoleLogger and ScreenReporter have some heavy macro programming.  While the setup code isn't the easiest to read, it's highly important to use for the logging systems:
 
 * __Global access__: throwing this in the pre-compiled header gives access to logging at all times
 * __Reduce bookkeeping__: using macros allows use of `__FILE__`, `__LINE__`, `__FUNCTION__` (TODO: cleanup) macros, which lets the system embed that information at the call, removing the need for the caller to do so.
