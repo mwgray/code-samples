@@ -8,10 +8,6 @@
 #include "BoundTypeMember.h"
 #include "Scripting/LuaScriptManager.h"
 
-#include "BindLifetime.h"
-
-DEFINE_SINGLETON_TYPE(core, Bind);
-
 namespace core {
 
     Bind::Bind()
@@ -31,7 +27,6 @@ namespace core {
     void Bind::finalize()
     {
         mIsFinalized = true;
-        BindLifetime::Instance().finalize();
     }
 
     void Bind::UpdateMembers(Property* property)
@@ -49,17 +44,10 @@ namespace core {
 
         // check the global context and update any matching values from the resultant properties
         boundMember->updateValue(LuaScriptManager::Instance().getGlobalContext()->getProperties());
-
-        BindLifetime::Instance().RegisterBinding(host,boundMember->getName());
     }
 
-    void Bind::RemoveMember(const char* name, bool handleLifetime)
+    void Bind::RemoveMember(const char* name)
     {
-        if (handleLifetime)
-        {
-            BindLifetime::Instance().UnregisterBinding(name);
-        }
-
         for(BoundMemberVec::iterator i = mMembers.begin(); i != mMembers.end(); ++i)
         {
             BoundMember* boundMember = *i;
@@ -73,11 +61,5 @@ namespace core {
             }
         }        
     }
-
-    void Unbind::Host(void * host)
-    {
-        BindLifetime::Instance().DeregisterHost(host);
-    }
-
 
 } // namespace core

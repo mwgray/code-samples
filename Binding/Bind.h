@@ -7,14 +7,12 @@
 
 namespace core {
 
-    class BoundMember;
-
     class Bind
         : public Singleton<Bind>
     {
     public:
 
-        // Bind to a member variable
+        // Main entry point of the system, Bind to a member variable
         template <typename t_type>
         static BoundMember& Member(t_type& value, void * host, const char* name)
         {
@@ -25,7 +23,7 @@ namespace core {
             return *typedMember;
         }
 
-        // Bind to a global or static variable
+        // Main entry point of the system,  Bind to a global or static variable
         template <typename t_type>
         static BoundMember& StaticMember(t_type& value, const char* name)
         {
@@ -46,21 +44,19 @@ namespace core {
 
         void AddMember(BoundMember* boundMember, void * host);
 
-        void RemoveMember(const char* name, bool handleLifetime = true);
+        void RemoveMember(const char* name);
 
         friend class Unbind;
-        friend class BindLifetime;
     };
 
     class Unbind
     {
     public:
+        // Main exit point of the system, removes a binding
         inline static void Member(const char* name)
         {
             Bind::Instance().RemoveMember(name);
         }
-
-        static void Host(void * host);
     };
 
 } // namespace core
