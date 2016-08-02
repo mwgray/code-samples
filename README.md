@@ -7,14 +7,17 @@ Here are some quick summaries:
  * A robust [Logging](/Debugging/Logging) system.
  * A [Binding](/Debugging/Binding) system with which to change variables at runtime.
  * A [Scripting](/Debugging/Scripting) to facilitate changing bound variables.
-* The Process and Dependency Graph systems work together closely to help keep initialization requirements decoupled and 
- * [Process](/Process) is a collection of classes that represent a task of code from start to finish
- * [Dependency Graph](/Graph/Dependency) allows one to setup a dependency graph to ensure that certain tasks(like a Process) only execute once all its dependencies are resolved.
-* MVC
 * [Singleton](/Singleton) is a templated version of the singleton design pattern.  Don't leave home without it!
+* [Compact Strings](/CompactString) are an optimization for strings when only comparisions are needed.
+* The Process, Event and Dependency Graph systems work together closely to help keep initialization requirements decoupled and 
+ * [Process](/Process) is a collection of classes that represent a task of code from start to finish
+ * A simple [Event System](/Event) for firing events.
+ * [Dependency Graph](/Graph/Dependency) allows one to setup a dependency graph to ensure that certain tasks(like a Process) only execute once all its dependencies are resolved.
 * [Tweener](/Tweener) is a simple tweening system I wrote, mainly to facilitate smooth transitions in UI code.
-* [UI](/UI) is a rather old UI system that I wrote for the [Nintendo DS](https://en.wikipedia.org/wiki/Nintendo_DS) platform
 
+TODO:
+* MVC
+* [UI](/UI) is a rather old UI system that I wrote for the [Nintendo DS](https://en.wikipedia.org/wiki/Nintendo_DS) platform
 * [Word Cache](/WordCache) is an algorithm I wrote for the [Doki-Doki Universe](https://www.youtube.com/watch?v=H7hFijr5v-c) instant messenger app.  The system needed a way highlight phrases in a user typed message using a dictionary with ~100k words.
 
 As I wrote this, I realized this is an all encompassing UI system design, take from it what you will...
@@ -28,42 +31,6 @@ My philosophy is to make the end code readable and the setup code complex.
 # System Desing
 * Game dev doesn't have a lot of UI options available(at least not back)
 * Would probably just get something off the shelf these days
-* 
-
-# Logging
-* Category
-* Severity
-* Platform separation
-* Removabiltiy
-* Call location tracking
-
-# Binding
-* Templated
-* Runtime tweaing server
-* expose to lua
-
-# Scripting
-* Boot time lua configuration
-* Runtime variable updating
-
-# Process
-* Self containted execution contexts
-* can be done in batches
-* used in conjunctino with Dependency graph to create boot processes
-
-# Dependency Graph
-* Author a list of dependnecies
-* Show editor image
-* use editor to create lua file which establishes dependencies on boot
-
-# Singleton
-* Simple Common pattern, but almost always needed
-
-# Tweener
-* A simple animation tweening class
-* Collection of easing equations
-* Callbacks
-* Paremererized variables thingy
 
 #MVC
 * Code annotations
