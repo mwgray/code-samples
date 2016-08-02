@@ -19,13 +19,13 @@ public:
         cout << "At time: " << globalTime << ", tween was created: " << value << endl;
 
         Tweener.addTween("TestTween")
-                .delay(0.5)
-                .time(1)
-                .type(EaseOutExpo)  // quick at first, slow towards end
-                .param(&value, 25)
-                .onStart(this, &QuickTest::onStart)
-                .onUpdate(this, &QuickTest::onUpdate)
-                .onComplete(this, &QuickTest::onComplete);
+                .delay(0.5)                                 // wait 0.5 seconds before starting the tween
+                .time(1)                                    // take 1 second to complete the tween
+                .type(EaseOutExpo)                          // quick at first, slow towards end
+                .param(&value, 25)                          // tween the float stored by value to 25 over the course of the tween
+                .onStart(this, &QuickTest::onStart)         // when the tween starts(after the delay timer), call onStart
+                .onUpdate(this, &QuickTest::onUpdate)       // when ever the tween changes the value, call onUpdate
+                .onComplete(this, &QuickTest::onComplete);  // when the tween reaches the target value of 25, call onComplete
     }
 
     void onStart() {

@@ -1,0 +1,26 @@
+# Tweener
+
+This is a simple Tweening system I loosely ported from an ActionScript library.  It was used extensively when implementing UI transitions and effects.  You can see examples of the transitions [here](http://hosted.zeh.com.br/tweener/docs/en-us/misc/transitions.html).
+
+Example usage (from main.cpp demo file):
+```
+Tweener.addTween("TestTween")
+        .delay(0.5)                                 // wait 0.5 seconds before starting the tween
+        .time(1)                                    // take 1 second to complete the tween
+        .type(EaseOutExpo)                          // quick at first, slow towards end
+        .param(&value, 25)                          // tween the float stored by value to 25 over the course of the tween
+        .onStart(this, &QuickTest::onStart)         // when the tween starts(after the delay timer), call onStart
+        .onUpdate(this, &QuickTest::onUpdate)       // when ever the tween changes the value, call onUpdate
+        .onComplete(this, &QuickTest::onComplete);  // when the tween reaches the target value of 25, call onComplete
+```
+
+This is a tween that animates value from to 25.0f.  It calls a callback when the tweening starts, each frame it updates, and when it completes.  It uses a ease out exponential easing function, and takes 5.
+
+Here's some summaries of the files: 
+
+* __Tweener__ is the entry point for the user, where `Tweener.addTween` is exposed.  It also updates and tracks all tweens over time, so the user doesn't have to worry about cleanup unless they need to.
+* __Tween__ is the base level class that holds all the tween parameters, and the binding to the member being tweened.
+* __TweenCallback__ is a functor storage class for the tween callbacks for global and member functions. 
+* __TweenEquation.cpp__ holds all the tweening equations.
+* __Misc__ is just some helper code to get the extract code to run by itself
+* __main__ is a simple demo that will be built by the CMake project.  Run `MakeAndRun.sh` to run.
