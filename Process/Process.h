@@ -21,8 +21,6 @@ namespace core {
         
         bool hasEnded();
 
-        bool isAsnycProcess() const;
-
         void begin();
 
         void end(const char* additionalEvent=nullptr);
@@ -33,7 +31,6 @@ namespace core {
         bool mBegun;
         bool mEnded;
         bool mDeleteOnEnd;
-        bool mIsAsyncProcess;
 
         virtual const char* getReportName();
 

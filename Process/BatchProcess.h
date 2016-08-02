@@ -11,7 +11,6 @@ namespace core {
     class BatchProcess
         : public NamedProcess
         , public NoCopy
-        // , public ProcessList
     {
     public:
         BatchProcess();
@@ -22,15 +21,12 @@ namespace core {
             return mProgress;
         }
         
-        // note, will auto-run any async-enabled process
         void AddProcess(Process* p);
 
     protected:
         float mProgress;
         Process* mCurrentProcess;
         int mNumProcessesCompleted;
-        int mNumAsyncProcessesRequested;
-        int mNumAsyncProcessedCompleted;
         ProcessList mProcessList;
 
         virtual void onBegin();
@@ -38,7 +34,6 @@ namespace core {
         virtual void startNextProcess();
 
         void handleProcessEnded(const Event* event);
-        void handleAsyncProcessEnded(const Event* event);
         void checkDone();
     };
 

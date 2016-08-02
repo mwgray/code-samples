@@ -14,8 +14,6 @@ namespace core {
         : mProgress(0.0f)
         , mCurrentProcess(nullptr)
         , mNumProcessesCompleted(0)
-        , mNumAsyncProcessesRequested(0)
-        , mNumAsyncProcessedCompleted(0)
     {
         mName = "BatchProcess";
         logInfo("BatchProcess","creating 0x%p",this);
@@ -36,37 +34,12 @@ namespace core {
     {
         if (NULL != p)
         {
-            if (p->isAsnycProcess())
-            {
-                ++mNumAsyncProcessesRequested;
-                p->addEventListener(ProcessEvent::PROCESS_ENDED, this, &BatchProcess::handleAsyncProcessEnded, true);
-                p->begin();
-
-            }
-            else
-            {
-                mProcessList.push_back(p);
-            }
+            mProcessList.push_back(p);
         }
     }
 
     void BatchProcess::startNextProcess()
     {
-        // process async list
-        //ProcessList copyList(*this);
-        //clear();
-        //for (ProcessList::iterator iter = copyList.begin(); iter != copyList.end(); ++iter)
-        //{
-        //    Process * process = *iter;
-        //    if (process->continueSupported())
-        //    {
-        //        process->begin();
-        //        process->addEventListener(ProcessEvent::PROCESS_CONTINUE, this, &BatchProcess::handleProcessEnded, true);
-        //    }
-        //    else
-        //        push_back(process);
-        //}
-
         if(!mProcessList.empty())
         {  
             mCurrentProcess = *mProcessList.begin();
@@ -76,11 +49,7 @@ namespace core {
         else
         {
             checkDone();
-
-        //    // Process::end();
         }
-
-        // mProgress = float(mNumProcessesCompleted) / float(mNumProcessesCompleted + mNumAsyncProcessesRequested + mProcessList.size());
     }
 
     void BatchProcess::handleProcessEnded(const Event*)
@@ -95,20 +64,11 @@ namespace core {
         checkDone();
     }
 
-    void BatchProcess::handleAsyncProcessEnded(const Event*)
-    {
-        mNumProcessesCompleted++;
-        mNumAsyncProcessedCompleted++;
-
-        // mProgress = float(mNumProcessesCompleted) / float(mNumProcessesCompleted + mNumAsyncProcessesRequested + mProcessList.size());
-        checkDone();
-    }
-
     void BatchProcess::checkDone()
     {
-        mProgress = float(mNumProcessesCompleted) / float(mNumProcessesCompleted + mNumAsyncProcessesRequested + mProcessList.size());
+        mProgress = float(mNumProcessesCompleted) / float(mProcessList.size());
 
-        if (mNumAsyncProcessedCompleted == mNumAsyncProcessesRequested && mProcessList.empty())
+        if (mProcessList.empty())
         {
             // is complete
             Process::end();

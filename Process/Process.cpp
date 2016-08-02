@@ -13,7 +13,6 @@ namespace core {
         : mBegun(false)
         , mEnded(false)
         , mDeleteOnEnd(true)
-        , mIsAsyncProcess(false)
     {
 
     }
@@ -31,11 +30,6 @@ namespace core {
     bool Process::hasEnded()
     {
         return mEnded;
-    }
-
-    bool Process::isAsnycProcess() const
-    {
-        return mIsAsyncProcess;
     }
 
     void Process::begin()
