@@ -9,8 +9,9 @@
 
 namespace core {
 
-    Process::Process() 
-        : mBegun(false)
+    Process::Process(const char* name)
+        : mName(name == nullptr ? "" : name)
+        , mBegun(false)
         , mEnded(false)
         , mDeleteOnEnd(true)
     {
@@ -72,8 +73,7 @@ namespace core {
 
     const char* Process::getReportName()
     {
-        // TODO - need a proper way to do reflection/ids...
-        return "Process"; // typeid(*this).name();
+        return mName.c_str();
     }
 
     void Process::dispatch(const CompactString& type)

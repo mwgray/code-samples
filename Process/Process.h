@@ -13,7 +13,7 @@ namespace core {
     {
     public:
 
-        Process();
+        Process(const char* name=nullptr);
 
         virtual ~Process();
 
@@ -31,6 +31,7 @@ namespace core {
         bool mBegun;
         bool mEnded;
         bool mDeleteOnEnd;
+        std::string mName;
 
         virtual const char* getReportName();
 

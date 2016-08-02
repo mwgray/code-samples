@@ -3,13 +3,13 @@
 #ifndef __BATCHPROCESS_H__
 #define __BATCHPROCESS_H__
 
-#include "NamedProcess.h"
+#include "Process.h"
 #include "ProcessTypes.h"
 
 namespace core {
 
     class BatchProcess
-        : public NamedProcess
+        : public Process
         , public NoCopy
     {
     public:

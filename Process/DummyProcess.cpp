@@ -7,7 +7,7 @@
 namespace core {
 
     DummyProcess::DummyProcess(const char* name)
-        : NamedProcess(name)
+        : Process(name)
     {
         mName = "Dummy::" + mName;
     }

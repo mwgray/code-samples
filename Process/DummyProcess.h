@@ -3,12 +3,13 @@
 #ifndef __DUMMYPROCESS_H__
 #define __DUMMYPROCESS_H__
 
-#include "NamedProcess.h"
+#include "Process.h"
 
 namespace core {
 
+    // Dummy class if you need to group or create empty processes
     class DummyProcess
-        : public NamedProcess
+        : public Process
     {
     public:
         DummyProcess(const char* name);
