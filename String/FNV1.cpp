@@ -1,8 +1,6 @@
 // Copyright 2006-12 HumaNature Studios Inc.
 
-#include "PhyreCorePch.h"
-
-#include "HumaNature/Math/Crypto/FNV1.h"
+#include "FNV1.h"
 
 namespace core {
 

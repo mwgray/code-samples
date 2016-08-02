@@ -3,7 +3,7 @@
 #include "PhyreCorePch.h"
 
 #include "HumaNature/Templates/Singleton/Singleton.h"
-#include "Humanature/Math/Crypto/FNV1.h"
+#include "FNV1.h"
 
 #define KEEP_ORIGINAL_STRING_CASE
 

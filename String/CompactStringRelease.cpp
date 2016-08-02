@@ -2,7 +2,7 @@
 
 #include "PhyreCorePch.h"
 
-#include "Humanature/Math/Crypto/FNV1.h"
+#include "FNV1.h"
 
 namespace core {
     void CompactStringRelease::Calc(const char* pString)
