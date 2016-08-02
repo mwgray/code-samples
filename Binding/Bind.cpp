@@ -15,9 +15,6 @@ DEFINE_SINGLETON_TYPE(core, Bind);
 namespace core {
 
     Bind::Bind()
-#ifdef __HNS_LIVEEDITSERVER_ENABLED__
-        : mServer(nullptr)
-#endif // __HNS_LIVEEDITSERVER_ENABLED__
     {
         mIsFinalized = false;
     }
@@ -31,30 +28,10 @@ namespace core {
         }
     }
 
-    void Bind::initialize(BindServerConfig* serverConfig)
-    {
-#ifdef __HNS_LIVEEDITSERVER_ENABLED__
-        mServer = new BindServer(serverConfig->mMaxNodes, serverConfig->mRootName);
-#else
-        UNUSED_PARAM(serverConfig);
-#endif // __HNS_LIVEEDITSERVER_ENABLED__
-    }
-
     void Bind::finalize()
     {
         mIsFinalized = true;
         BindLifetime::Instance().finalize();
-
-#ifdef __HNS_LIVEEDITSERVER_ENABLED__
-        if (mServer)
-        {
-            for(BoundMemberVec::iterator i = mMembers.begin(); i != mMembers.end(); ++i)
-            {
-                mServer->removeMember(*i);
-            }
-        }
-        SafeDelete(mServer);
-#endif // __HNS_LIVEEDITSERVER_ENABLED__
     }
 
     void Bind::UpdateMembers(Property* property)
@@ -89,45 +66,12 @@ namespace core {
             {         
                 mMembers.erase(i);
 
-#ifdef __HNS_LIVEEDITSERVER_ENABLED__
-                if(mServer)
-                {
-                    mServer->removeMember(boundMember);
-                }
-#endif // __HNS_LIVEEDITSERVER_ENABLED__
-
                 delete boundMember;
 
                 break;
             }
         }        
     }
-
-
-    // Putting template specialization here in cpp file, rather than implementing one function in .h file,
-    // so that I don't have to include BindServer.h in Bind.h (which is in the precompiled header).
-    // Is this more work and less graceful? Possibly.
-    // mgraeb
-#ifdef __HNS_LIVEEDITSERVER_ENABLED__
-    #define ADD_TO_SERVER_TYPED(t_type)                              \
-        template<>                                                   \
-        void Bind::AddToServer(BoundTypeMember<t_type>* typedMember) \
-        {                                                            \
-            if (mServer)                                             \
-                mServer->addMember(typedMember);                     \
-        }
-#else
-    #define ADD_TO_SERVER_TYPED(t_type)                              \
-        template<>                                                   \
-        void Bind::AddToServer(BoundTypeMember<t_type>*)             \
-        {                                                            \
-        }
-
-#endif // __HNS_LIVEEDITSERVER_ENABLED__
-
-    ADD_TO_SERVER_TYPED(int)
-    ADD_TO_SERVER_TYPED(bool)
-    ADD_TO_SERVER_TYPED(float)
 
     void Unbind::Host(void * host)
     {

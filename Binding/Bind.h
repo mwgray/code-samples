@@ -8,8 +8,6 @@
 namespace core {
 
     class BoundMember;
-    class BindServer;
-    struct BindServerConfig;
 
     class Bind
         : public Singleton<Bind>
@@ -34,7 +32,6 @@ namespace core {
 
         Bind();
         ~Bind();
-        void initialize(BindServerConfig* serverConfig);
         void finalize();
 
         void UpdateMembers(Property* property);
@@ -43,15 +40,6 @@ namespace core {
         typedef std::vector<BoundMember*> BoundMemberVec;
         BoundMemberVec mMembers;
         bool mIsFinalized;
-
-#ifdef __HNS_LIVEEDITSERVER_ENABLED__
-        BindServer *mServer;
-#endif // __HNS_LIVEEDITSERVER_ENABLED__
-
-        // Type-specific implementations are in Bind.cpp.
-        // Keeping the code out header lets us keep BindServer.h out of precompiled header.
-        template<typename t_type>
-        void AddToServer(BoundTypeMember<t_type>* typedMember);
 
         void AddMember(BoundMember* boundMember, void * host);
 

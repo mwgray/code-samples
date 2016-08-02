@@ -7,23 +7,26 @@
 
 namespace core {
 
-    // TODO- move this back to the h file when the Property hierarchy has cooled off
     template <>
     void BoundTypeMember<bool>::updateValue(Property* property)
     {
         property->read(mName.c_str(), mRef);
     }
 
-    // TODO- move this back to the h file when the Property hierarchy has cooled off
     template <>
     void BoundTypeMember<int>::updateValue(Property* property)
     {
         property->read(mName.c_str(), mRef);
     }
 
-    // TODO- move this back to the h file when the Property hierarchy has cooled off
     template <>
     void BoundTypeMember<float>::updateValue(Property* property)
+    {
+        property->read(mName.c_str(), mRef);
+    }
+
+    template <>
+    void BoundTypeMember<const char>::updateValue(Property* property)
     {
         property->read(mName.c_str(), mRef);
     }

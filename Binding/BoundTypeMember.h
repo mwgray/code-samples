@@ -20,7 +20,7 @@ public:
 
       virtual void updateValue(Property* property);
 
-      t_type* getDataPtr() {return &mRef;}
+      t_type* getDataPtr() { return &mRef; }
 
 protected:
     t_type& mRef;
