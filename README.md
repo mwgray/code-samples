@@ -3,16 +3,13 @@ More details are provided in each folder's accompanying README.md
 
 Here are some quick summaries:
 
-* Debugging facilities - when ever I start a new project or working on a new platform, I ensure the following systems are available.
+* Debugging facilities - whenever I start a new project or working on a new platform, I ensure the following systems are available.
  * A robust [Logging](/Debugging/Logging) system.
  * A [Binding](/Debugging/Binding) system with which to change variables at runtime.
  * A [Scripting](/Debugging/Scripting) to facilitate changing bound variables.
 * [Singleton](/Singleton) is a templated version of the singleton design pattern.  Don't leave home without it!
 * [Compact Strings](/CompactString) are an optimization for strings when only comparisions are needed.
-* The Process, Event and Dependency Graph systems work together closely to help keep initialization requirements decoupled and 
- * [Process](/Process) is a collection of classes that represent a task of code from start to finish
- * A simple [Event System](/Event) for firing events.
- * [Dependency Graph](/Graph/Dependency) allows one to setup a dependency graph to ensure that certain tasks(like a Process) only execute once all its dependencies are resolved.
+* The [Process](/Process), [Event](/Event) and [Dependency Graph](/Graph/Dependency) systems work together closely to help keep initialization requirements decoupled and execute in the correct order.
 * [Tweener](/Tweener) is a simple tweening system I wrote, mainly to facilitate smooth transitions in UI code.
 
 TODO:
