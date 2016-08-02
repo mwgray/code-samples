@@ -18,9 +18,9 @@ This is a tween that animates value from to 25.0f.  It calls a callback when the
 
 Here's some summaries of the files: 
 
-* __Tweener__ is the entry point for the user, where `Tweener.addTween` is exposed.  It also updates and tracks all tweens over time, so the user doesn't have to worry about cleanup unless they need to.
-* __Tween__ is the base level class that holds all the tween parameters, and the binding to the member being tweened.
-* __TweenCallback__ is a functor storage class for the tween callbacks for global and member functions. 
-* __TweenEquation.cpp__ holds all the tweening equations.
-* __Misc__ is just some helper code to get the extract code to run by itself
-* __main__ is a simple demo that will be built by the CMake project.  Run `MakeAndRun.sh` to run.
+* [Tweener.h](Tweener.h)/[cpp](Tweener.cpp) is the entry point for the user, where TweenerTweener.addTweenTweener is exposed.  It also updates and tracks all tweens over time, so the user doesn't have to worry about cleanup unless they need to.
+* [Tween.h](Tween.h)/[cpp](Tween.cpp) is the base level class that holds all the tween parameters, and the binding to the member being tweened.
+* [TweenCallback.h](TweenCallback.h)/[cpp](TweenCallback.cpp) is a functor storage class for the tween callbacks for global and member functions. 
+* [TweenEquation.h](TweenEquation.h)/[cpp](TweenEquation.cpp) holds all the tweening equations.
+* [Misc.h](Misc.h) is just some helper code to get the extract code to run by itself
+* [main.cpp](main.cpp) is a simple demo that will be built by the CMake project.  Run mainMakeAndRun.shmain to run.

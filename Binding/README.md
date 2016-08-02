@@ -9,6 +9,6 @@ In this example the member variable `muteMusic` is exposed to lua as a global va
 
 Here's some summaries of the files: 
 
-* __Bind__ is the main entry point for binding system.
-* __BoundMember__ is the base storage class for bindings.  Holds the name of the variable, comments, and if it's a one-time boot variable.
-* __BoundTypeMember__ holds templated subclasses of BoundMember, for primitives int, float, bool and c strings.
+* [Bind.h](Bind.h)/[cpp](Bind.cpp) is the main entry point for binding system.
+* [BoundMember.h](BoundMember.h)/[cpp](BoundMember.cpp) is the base storage class for bindings.  Holds the name of the variable, comments, and if it's a one-time boot variable.
+* [BoundTypeMember.h](BoundTypeMember.h)/[cpp](BoundTypeMember.cpp) holds templated subclasses of BoundMember, for primitives int, float, bool and c strings.
