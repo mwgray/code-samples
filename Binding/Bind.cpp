@@ -47,6 +47,7 @@ namespace core {
     {
         mMembers.push_back(boundMember);
 
+        // check the global context and update any matching values from the resultant properties
         boundMember->updateValue(LuaScriptManager::Instance().getGlobalContext()->getProperties());
 
         BindLifetime::Instance().RegisterBinding(host,boundMember->getName());

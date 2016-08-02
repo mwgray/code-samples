@@ -7,26 +7,29 @@
 
 namespace core {
 
+    // where most of the magic happens, the value is updated from the property.  each one of these just references the
+    // template read from the Property class
+
     template <>
-    void BoundTypeMember<bool>::updateValue(Property* property)
+    void BoundTypeMember<bool>::updateValueFromProperty(Property* property)
     {
         property->read(mName.c_str(), mRef);
     }
 
     template <>
-    void BoundTypeMember<int>::updateValue(Property* property)
+    void BoundTypeMember<int>::updateValueFromProperty(Property* property)
     {
         property->read(mName.c_str(), mRef);
     }
 
     template <>
-    void BoundTypeMember<float>::updateValue(Property* property)
+    void BoundTypeMember<float>::updateValueFromProperty(Property* property)
     {
         property->read(mName.c_str(), mRef);
     }
 
     template <>
-    void BoundTypeMember<const char>::updateValue(Property* property)
+    void BoundTypeMember<const char>::updateValueFromProperty(Property* property)
     {
         property->read(mName.c_str(), mRef);
     }

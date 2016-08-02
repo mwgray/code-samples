@@ -7,6 +7,7 @@
 
 namespace core {
 
+// typed version of BoundMember, stores reference to a member
 template <typename t_type>
 class BoundTypeMember:
     public BoundMember
@@ -18,7 +19,8 @@ public:
 
       }
 
-      virtual void updateValue(Property* property);
+      // where most of the magic happens, the value is updated from the property
+      virtual void updateValueFromProperty(Property* property);
 
       t_type* getDataPtr() { return &mRef; }
 

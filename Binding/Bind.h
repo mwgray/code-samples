@@ -14,6 +14,7 @@ namespace core {
     {
     public:
 
+        // Bind to a member variable
         template <typename t_type>
         static BoundMember& Member(t_type& value, void * host, const char* name)
         {
@@ -24,6 +25,7 @@ namespace core {
             return *typedMember;
         }
 
+        // Bind to a global or static variable
         template <typename t_type>
         static BoundMember& StaticMember(t_type& value, const char* name)
         {
@@ -34,6 +36,7 @@ namespace core {
         ~Bind();
         void finalize();
 
+        // Called after a lua script executes to update various members
         void UpdateMembers(Property* property);
 
     protected:
