@@ -61,8 +61,7 @@ namespace core {
             dispatch(additionalEvent);
         }
 
-        DelayedEventDispatcher::Instance().delayDispatchNonScaleform(this,ProcessEvent::PROCESS_ENDED);
-        // dispatch(ProcessEvent::PROCESS_ENDED);
+        dispatch(ProcessEvent::PROCESS_ENDED);
     }
 
     void Process::reset()
