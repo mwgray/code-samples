@@ -12,9 +12,9 @@ namespace core {
     class EventDispatcher
     {
     public:        
-        virtual ~EventDispatcher();//{}
+        virtual ~EventDispatcher();
 
-        // gets called for all events
+        // listen for all events
         template <typename tListener> 
         void addEventListener(tListener* listener, void (tListener::*memberFunction)(const Event* event), bool removeAfterDispatch=false)
         {
@@ -27,7 +27,7 @@ namespace core {
             mWildcardListeners.removeEventListener(listener, memberFunction);
         }
 
-        // TODO - should generalize this pattern to be a Function class
+        // listen for a specific event by name
         template <typename tListener> 
         void addEventListener(const CompactString& eventType, tListener* listener, void (tListener::*memberFunction)(const Event* event), bool removeAfterDispatch=false)
         {

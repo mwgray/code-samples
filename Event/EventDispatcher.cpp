@@ -23,7 +23,7 @@ namespace core {
 
     EventDispatcher::~EventDispatcher()
     {
-        DelayedEventDispatcher::Instance().onDeleteDispatcher(this);
+
     }
 
 } // namespace core

@@ -6,8 +6,6 @@
 
 namespace core {
 
-    REGISTER_PARENT_NS(core, Event, Castable);
-
     Event::Event(const CompactString& type)
         : mType(type) 
     {
