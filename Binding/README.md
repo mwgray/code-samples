@@ -1,6 +1,6 @@
 # Binding
 
-So where as the [Scripting](/Scripting) system generally is for binding functions, the Binding system is for binding variables.  It also integrates with the Lua Scripting, so lua scripts can control bound members.
+So where as the [Scripting](/Scripting) system generally is for binding functions, the Binding system is for binding variables.  It also integrates with the Lua Scripting, so lua scripts can control bound members.  It's a bit simpler to do variable binding in C++ than functions because functors are complex.
 
 To Bind a member the following call is made:
 ```Bind::Member(muteMusic, this, "muteMusic")```
