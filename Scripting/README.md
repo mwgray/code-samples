@@ -1,3 +1,5 @@
+#Scripting 
+
 This collection of files simplify the headache that comes with binding C++ code to Lua.  The usual lua library requires knowledge of the lua stack and can generally get pretty complicated to follow and debug.  I wrote these files to make it easier for others to bind c++ functions to a Lua runtime context.
 
 Binding is as simple as getting a LuaContext and calling bind on it:
@@ -5,7 +7,7 @@ Binding is as simple as getting a LuaContext and calling bind on it:
 
 In this example, we are adding a function `log` to the `debug` context, which will execute the `ConsoleLogger::SubscribeTo` function when called from lua.  Note there is no need to clarify parameters, the system knows how to interpret all of it on it's own.
 
-At first glance the binding code is a bit to take in.  This is mainly because this code was written before C++ had variadic template parameters and I had to explictly make a function for each parameter count.  Each function 'group' is a set of template functions, with a specialization for 0 to 5 parameters.  Templates are also specialize with float, int, string, bool, since they are the only types easily translatable to Lua.
+At first glance the binding code is a bit to take in.  This is mainly because this code was written before C++ had variadic template parameters and I had to explicitly make a function for each parameter count.  Each function 'group' is a set of template functions, with a specialization for 0 to 5 parameters.  Templates are also specialize with float, int, string, bool, since they are the only types easily translatable to Lua.
 
 Here's some summaries of the files: 
 
@@ -19,3 +21,5 @@ Here's some summaries of the files:
 * __LuaMemberProcedureBindings.h__ is like function bindings, but since templates get (even more) messy with return values, it's easier to just omit the return value of void from the template.  These are just functions with void return value.
 * __LuaGlobalProcedureBindings.h__ is for binding to global functions with a void return value.
 * __CoreLuaScript__ - Class that actually executes the lua scripts.  It links to the actual lua lib, which is outside of the scope of this example.
+
+Exposing C++ variables to scripting code is handled by the [Binding](/Binding) system
