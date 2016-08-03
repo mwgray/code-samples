@@ -2,7 +2,7 @@
 
 Dependency graphs are where it all comes together!  By using the process class, we can create a dependency graph that allows us to ensure a program is in an expected state when executing dependant code.
  
-I used [yEd](https://www.yworks.com/products/yed) to create dependency graphs visually, and a tool took the xml from yEd and created lua files that would create the dependency graphs in C++.
+I used [yEd](https://www.yworks.com/products/yed) to create dependency graphs visually, and a tool converted the xml from yEd to lua files which in turn creates the dependency graphs in C++ during execution.
 
 [Here](BootupDependencyGraph.png) is an example of a graph. Each node represents a [Process](/Process) sub-class, and dependencies are represented by arrows.  If a arrow points to a group, then all processes in that group must complete first.  This specific graph was used for logging into our instant messaging system [Doki-Doki Mail](https://www.youtube.com/watch?v=H7hFijr5v-c).  Some details:  
 * The __Core Setup__ group at the left grabs the Facebook ID and sets up Google analytics.
