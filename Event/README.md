@@ -4,8 +4,8 @@ This is a simple event system I wrote for a UI system.  Event Dispatchers can be
 
 ```
 addEventListener(ProcessEvent::PROCESS_ENDED,      // Listen for the process ended event
-                this,                              // bind to this object
-                &BatchProcess::handleProcessEnded, // bind to this object's handleProcessEnded
+                this,                              // bind to this object's handleProcessEnded
+                &BatchProcess::handleProcessEnded, //    (2 parameters needed for the functor)
                 true);                             // after handling the event, automatically remove the listener
 ```
 
