@@ -4,7 +4,7 @@ Here is a collection of some systems from my most recent projects.  More details
 Here's a quick rundown of the systems
 
 * Whenever I start a new project or working on a new platform, I ensure a good set of debugging facilities are available.  [Logging](/Logging), [Variable Binding](/Binding) and [Runtime Scripting](/Scripting) are a good start.    
-* The [Process](/Process), [Event](/Event) and [Dependency Graph](/Graph/Dependency) systems work together closely to help keep initialization requirements decoupled and execute in the correct order.
+* The [Process](/Process), [Event](/Event) and [Dependency Graph](/DependencyGraph) systems work together closely to help keep initialization requirements decoupled and execute in the correct order.
 * [Singleton](/Singleton) is a templated version of the singleton design pattern.  Don't leave home without it!
 * [Compact Strings](/CompactString) are an optimization for strings when only comparisons are needed.
 * [Tweener](/Tweener) is a simple tweening system I wrote, mainly to facilitate smooth transitions in UI code.
