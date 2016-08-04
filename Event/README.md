@@ -3,7 +3,10 @@
 This is a simple event system I wrote for a UI system.  Event Dispatchers can be listened to for specific events, or all events.  One can listen for an event by calling addEventListener, like BatchProcess does in the [Process](/Process) samples:
 
 ```
-mCurrentProcess->addEventListener(ProcessEvent::PROCESS_ENDED, this, &BatchProcess::handleProcessEnded, true);
+addEventListener(ProcessEvent::PROCESS_ENDED,      // Listen for the process ended event
+                this,                              // bind to this object
+                &BatchProcess::handleProcessEnded, // bind to this object's handleProcessEnded
+                true);                             // after handling the event, automatically remove the listener
 ```
 
 This listens for the process ended event, and calls handleProcessEnded when it is fired.  The final parameter removes the listener after the dispatch.
