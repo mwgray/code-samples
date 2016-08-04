@@ -23,4 +23,4 @@ Here's some summaries of the files:
 * [TweenCallback.h](TweenCallback.h)/[cpp](TweenCallback.cpp) is a functor storage class for the tween callbacks for global and member functions. 
 * [TweenEquation.h](TweenEquation.h)/[cpp](TweenEquation.cpp) holds all the tweening equations.
 * [Misc.h](Misc.h) is just some helper code to get the extract code to run by itself
-* [main.cpp](main.cpp) is a simple demo that will be built by the CMake project.  Run mainMakeAndRun.shmain to run.
+* [main.cpp](main.cpp) is a simple demo that will be built by the CMake project.  Run `mainMakeAndRun.sh` to run.
