@@ -12,12 +12,21 @@ namespace core {
         , public Singleton<ConsoleLogger>
     {
     public:
+        enum ErrorBehavior
+        {
+            kBreak,
+            kIgnoreAll,
+            kContinue,
+        };
+
         ConsoleLogger();
         
         virtual ~ConsoleLogger();
 
         virtual void bindFunctions(LuaContext* context);
-        
+
+        ErrorBehavior logWithBreak(Severity severity, const char* category, const char* message, ...);
+
         virtual ErrorBehavior logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs);
 
         virtual ErrorBehavior handleSeverity(Severity severity, const CompactStringDebug& category, LargeStaticCharBuffer& buffer, int minDepth);
@@ -32,7 +41,7 @@ namespace core {
     {                                                                                                     \
         SCOPED_TRACKED_PHASE_EX(Logging);                                                                 \
         static core::LogMarker LINE_MARKER(logMarker);                                                    \
-        if(LINE_MARKER(logMarker).log(__FILE__, __LINE__, __FUNCTION__, severity, category, __VA_ARGS__)) \
+        if(LINE_MARKER(logMarker).logWithBreak(__FILE__, __LINE__, __FUNCTION__, severity, category, __VA_ARGS__)) \
         {                                                                                                 \
             PHYRE_BREAKPOINT;                                                                             \
         }                                                                                                 \

@@ -42,18 +42,6 @@ namespace core {
         return isError || (!isIgnored && (severity <= kWarn || IsSubscribedTo(category)));
     }
 
-    Logger::ErrorBehavior Logger::log(Severity severity, const char* category, const char* message, ...)
-    {
-        Logger::ErrorBehavior errorBehavior;
-        
-        va_list vargs; 
-        va_start(vargs, message); 
-        errorBehavior = logVargs(severity, category, message, vargs);
-        va_end(vargs);
-
-        return errorBehavior;
-    }
-
     void Logger::fatal(const char* category, const char* message, ...)
     {
         va_list vargs;

@@ -28,6 +28,18 @@ namespace core {
         context->bind("ignore", this, &ConsoleLogger::ignore);
     }
 
+    Logger::ErrorBehavior Logger::logWithBreak(Severity severity, const char* category, const char* message, ...)
+    {
+        Logger::ErrorBehavior errorBehavior;
+
+        va_list vargs;
+        va_start(vargs, message);
+        errorBehavior = logVargs(severity, category, message, vargs);
+        va_end(vargs);
+
+        return errorBehavior;
+    }
+
     Logger::ErrorBehavior ConsoleLogger::logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs)
     {
         if(shouldLog(severity, category))

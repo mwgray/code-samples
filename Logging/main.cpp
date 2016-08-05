@@ -6,7 +6,7 @@ class ExampleLogger
         : public Logger {
 
     // log the message.  returns how the program should proceed if the log is a error or above
-    virtual ErrorBehavior logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs)
+    virtual void logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs)
     {
         // print severity / category
         printf("%s\t[%s]\t", severityStrings[severity], category.c_str());
@@ -16,8 +16,6 @@ class ExampleLogger
 
         // append a new-line
         printf("\n");
-
-        return kContinue;
     }
 };
 

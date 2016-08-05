@@ -22,22 +22,13 @@ namespace core  {
             kFatal,
         };
 
-        enum ErrorBehavior
-        {
-            kBreak,
-            kIgnoreAll,
-            kContinue,
-        };
-
         Logger();
         
         virtual ~Logger();
 
-        virtual ErrorBehavior logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs) = 0;
+        virtual void logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs) = 0;
 
         bool shouldLog(Severity severity, const CompactStringRelease& category);
-
-        ErrorBehavior log(Severity severity, const char* category, const char* message, ...);
 
         void force(const char* category, const char* message, ...);
         void trace(const char* category, const char* message, ...);

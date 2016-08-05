@@ -35,7 +35,7 @@ namespace core {
         context->bind("toggleReporter", this, &ScreenReporter::toggleEnabled);
     }
 
-    Logger::ErrorBehavior ScreenReporter::logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs)
+    void ScreenReporter::logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs)
     {
         if(mEnabled && IsSubscribedTo(category))
         {
