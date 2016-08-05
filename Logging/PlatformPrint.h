@@ -12,7 +12,7 @@ namespace core {
 
         static void finalize();
         
-        static void print(const char* message, int priority);
+        static void print(const char* message, int severity);
     };
 
 } // namespace core

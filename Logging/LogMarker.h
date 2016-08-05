@@ -12,7 +12,7 @@ namespace core {
 
         LogMarker();
 
-        bool log(const char* file, int line, const char* function, Priority priority, const char* category, const char* message, ...);
+        bool log(const char* file, int line, const char* function, Severity severity, const char* category, const char* message, ...);
     };
 
 } // namespace core

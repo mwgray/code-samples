@@ -24,7 +24,7 @@ namespace core {
 
         void bindFunctions(LuaContext* context);
 
-        virtual ErrorBehavior logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs);
+        virtual ErrorBehavior logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs);
 
         virtual void handleInputEvent(unsigned int eventType, void* eventData);
     

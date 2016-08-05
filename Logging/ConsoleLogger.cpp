@@ -28,16 +28,16 @@ namespace core {
         context->bind("ignore", this, &ConsoleLogger::ignore);
     }
 
-    Logger::ErrorBehavior ConsoleLogger::logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs)
+    Logger::ErrorBehavior ConsoleLogger::logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs)
     {
-        if(shouldLog(priority, category))
+        if(shouldLog(severity, category))
         {
             LargeStaticCharBuffer buffer;
 
             buffer.clear();
 
             // append the header
-            PHYRE_SNPRINTF(buffer.getCumulativeBuffer(), buffer.getRemainingBuffer(), "%d\t%s\t%s\t", PlatformTimer::NowMilliseconds(), priorityStrings[priority], category.c_str());
+            PHYRE_SNPRINTF(buffer.getCumulativeBuffer(), buffer.getRemainingBuffer(), "%d\t%s\t%s\t", PlatformTimer::NowMilliseconds(), severityStrings[severity], category.c_str());
             
             // append and format the message
             PHYRE_VSNPRINTF(buffer.getCumulativeBuffer(), buffer.getRemainingBuffer(), message, vargs);
@@ -46,9 +46,9 @@ namespace core {
             PHYRE_STRNCAT(buffer.getCumulativeBuffer(), "\n", buffer.getRemainingBuffer());
 
             // send the message to the TTY
-            PlatformPrint::print(buffer.getBuffer(), priority);
+            PlatformPrint::print(buffer.getBuffer(), severity);
 
-            return handlePriority(priority, category, buffer, 5);
+            return handleSeverity(severity, category, buffer, 5);
         }
         else
         {
@@ -56,17 +56,17 @@ namespace core {
         }
     }
 
-    Logger::ErrorBehavior ConsoleLogger::handlePriority(Priority priority, const CompactStringDebug& category, LargeStaticCharBuffer& buffer, int minDepth)
+    Logger::ErrorBehavior ConsoleLogger::handleSeverity(Severity severity, const CompactStringDebug& category, LargeStaticCharBuffer& buffer, int minDepth)
     {
         UNUSED_PARAM(category);
         UNUSED_PARAM(buffer);
 
-        if(priority <= kError)
+        if(severity <= kError)
         {
-            StackTracer::Instance().PlatformPrintStack(priority, nullptr, minDepth);
+            StackTracer::Instance().PlatformPrintStack(severity, nullptr, minDepth);
         }
 
-        if(priority <= kFatal)
+        if(severity <= kFatal)
         {
             if(!BuildPlatform::IsDebuggerPresent())
             {
@@ -75,7 +75,7 @@ namespace core {
             }
         }
 
-        return priority <= kError ? kBreak : kContinue;
+        return severity <= kError ? kBreak : kContinue;
     }
 
 } // namespace core

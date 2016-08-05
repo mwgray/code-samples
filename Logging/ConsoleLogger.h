@@ -18,21 +18,21 @@ namespace core {
 
         virtual void bindFunctions(LuaContext* context);
         
-        virtual ErrorBehavior logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs);
+        virtual ErrorBehavior logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs);
 
-        virtual ErrorBehavior handlePriority(Priority priority, const CompactStringDebug& category, LargeStaticCharBuffer& buffer, int minDepth);
+        virtual ErrorBehavior handleSeverity(Severity severity, const CompactStringDebug& category, LargeStaticCharBuffer& buffer, int minDepth);
     };
 
 } // namespace core
 
 #ifdef __HNS_LOGGING_ENABLED__
 
-#define logWrapper(priority, category, ...)                                                               \
+#define logWrapper(severity, category, ...)                                                               \
     PHYRE_MULTI_LINE_MACRO_BEGIN                                                                          \
     {                                                                                                     \
         SCOPED_TRACKED_PHASE_EX(Logging);                                                                 \
         static core::LogMarker LINE_MARKER(logMarker);                                                    \
-        if(LINE_MARKER(logMarker).log(__FILE__, __LINE__, __FUNCTION__, priority, category, __VA_ARGS__)) \
+        if(LINE_MARKER(logMarker).log(__FILE__, __LINE__, __FUNCTION__, severity, category, __VA_ARGS__)) \
         {                                                                                                 \
             PHYRE_BREAKPOINT;                                                                             \
         }                                                                                                 \
@@ -44,7 +44,7 @@ namespace core {
 
 #else // __HNS_LOGGING_ENABLED__
 
-#define logWrapper(priority, category, ...) DEAD_STRIP(priority); DEAD_STRIP(category); DEAD_STRIP_PARAMS(__VA_ARGS__);
+#define logWrapper(severity, category, ...) DEAD_STRIP(severity); DEAD_STRIP(category); DEAD_STRIP_PARAMS(__VA_ARGS__);
 #define logInfoUntracked(category, message, ...) DEAD_STRIP(category); DEAD_STRIP(message); DEAD_STRIP_PARAMS(__VA_ARGS__);
 
 #endif // __HNS_LOGGING_ENABLED__

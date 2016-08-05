@@ -10,9 +10,9 @@ namespace core {
 
     }
 
-    bool LogMarker::log(const char* file, int line, const char* function, Priority priority, const char* category, const char* message, ...)
+    bool LogMarker::log(const char* file, int line, const char* function, Severity severity, const char* category, const char* message, ...)
     {
-        if(message && enabled && ConsoleLogger::Instance().shouldLog(priority, category))
+        if(message && enabled && ConsoleLogger::Instance().shouldLog(severity, category))
         {
             LargeStaticCharBuffer buffer;
             buffer.clear();
@@ -25,14 +25,14 @@ namespace core {
             }
             va_end(vargs);
 
-            if(priority <= kWarn
-                && priority != kForce)
+            if(severity <= kWarn
+                && severity != kForce)
             {
                 // show MSVC click link
                 PHYRE_SNPRINTF(buffer.getCumulativeBuffer(), buffer.getRemainingBuffer(), "\n  %s(%d): %s", file, line, function);
             }
 
-            Logger::ErrorBehavior errorBehavior = ConsoleLogger::Instance().log(priority, category, "%s", buffer.getBuffer());
+            Logger::ErrorBehavior errorBehavior = ConsoleLogger::Instance().log(severity, category, "%s", buffer.getBuffer());
 
             switch(errorBehavior)
             {

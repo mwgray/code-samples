@@ -10,7 +10,7 @@ namespace core {
 
     static HANDLE gOutputHandle = INVALID_HANDLE_VALUE;
     static const WORD gDefaultAttib = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
-    static WORD gPriorityCharacterAttribs[] =
+    static WORD gSeverityCharacterAttribs[] =
     {
         FOREGROUND_INTENSITY | FOREGROUND_RED,// kFatal,
         FOREGROUND_INTENSITY | FOREGROUND_RED,// kError,
@@ -70,7 +70,7 @@ namespace core {
 #endif //__HNS_WIN32__
     }
 
-    void PlatformPrint::print(const char* message, int priority)
+    void PlatformPrint::print(const char* message, int severity)
     {
 #ifdef __HNS_WIN32__
         EnterCriticalSection(&gCriticalSection);
@@ -79,7 +79,7 @@ namespace core {
         fflush(stdout);
         if(gOutputHandle != INVALID_HANDLE_VALUE)
         {
-            SetConsoleTextAttribute(gOutputHandle, gPriorityCharacterAttribs[priority]);
+            SetConsoleTextAttribute(gOutputHandle, gSeverityCharacterAttribs[severity]);
             WriteFile(gOutputHandle, message, (DWORD)strlen(message), nullptr, nullptr);
             SetConsoleTextAttribute(gOutputHandle, gDefaultAttib);
         }
@@ -94,7 +94,7 @@ namespace core {
         }
         LeaveCriticalSection(&gCriticalSection);
 #else //! __HNS_WIN32__
-        (void)priority;
+        (void)severity;
         std::fputs(message, stdout);
 #endif //! __HNS_WIN32__
     }

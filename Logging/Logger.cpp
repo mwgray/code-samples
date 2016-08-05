@@ -12,43 +12,43 @@ namespace core {
     {
     }
 
-    const char* Logger::priorityStrings[] =
+    const char* Logger::severityStrings[] =
     {
-        "FATAL",
-        "ERROR",
         "FORCE",
-        "WARN",
-        "INFO",
-        "DEBUG",
         "TRACE",
+        "DEBUG",
+        "INFO",
+        "WARN",
+        "ERROR",
+        "FATAL",
     };
 
-    int Logger::priorityColors[] =
+    int Logger::severityColors[] =
     {
-        0xFF0000, // kFatal,
-        0x880000, // kError,    
         0x000000, // kForce,
-        0x888800, // kWarn,
-        0x000000, // kInfo,
-        0x888888, // kDebug,
         0xAAAAAA, // kTrace,
+        0x888888, // kDebug,
+        0x000000, // kInfo,
+        0x888800, // kWarn,
+        0x880000, // kError,
+        0xFF0000, // kFatal,
     };
 
-    bool Logger::shouldLog(Priority priority, const CompactStringRelease& category)
+    bool Logger::shouldLog(Severity severity, const CompactStringRelease& category)
     {
         bool isIgnored = ignoreCategories.IsSubscribedTo(category);
-        bool isError = priority <= kError;
+        bool isError = severity <= kError;
 
-        return isError || (!isIgnored && (priority <= kWarn || IsSubscribedTo(category)));
+        return isError || (!isIgnored && (severity <= kWarn || IsSubscribedTo(category)));
     }
 
-    Logger::ErrorBehavior Logger::log(Priority priority, const char* category, const char* message, ...)
+    Logger::ErrorBehavior Logger::log(Severity severity, const char* category, const char* message, ...)
     {
         Logger::ErrorBehavior errorBehavior;
         
         va_list vargs; 
         va_start(vargs, message); 
-        errorBehavior = logVargs(priority, category, message, vargs); 
+        errorBehavior = logVargs(severity, category, message, vargs);
         va_end(vargs);
 
         return errorBehavior;

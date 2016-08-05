@@ -35,7 +35,7 @@ namespace core {
         context->bind("toggleReporter", this, &ScreenReporter::toggleEnabled);
     }
 
-    Logger::ErrorBehavior ScreenReporter::logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs)
+    Logger::ErrorBehavior ScreenReporter::logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs)
     {
         if(mEnabled && IsSubscribedTo(category))
         {
@@ -53,7 +53,7 @@ namespace core {
                 char * outputBuffer = largeOutputBuffer.getBuffer();
                 vsprintf(outputBuffer, message, vargs);
 
-                writeLine(outputBuffer, priorityColors[(int)priority]);
+                writeLine(outputBuffer, severityColors[(int)severity]);
             }
         }
 
