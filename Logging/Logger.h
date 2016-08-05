@@ -4,9 +4,20 @@
 #define __LOGGER_H__
 
 namespace core  {
-    
-    class LuaContext;
-    
+
+    //TODO: check the order of all of these, and any <= operations
+    enum Priority
+    {
+        kForce, // force is a special case, it will always be logged
+
+        kTrace,
+        kDebug,
+        kInfo,
+        kWarn,
+        kError,
+        kFatal,
+    };
+
     class Logger
         : public Subscription
     {
