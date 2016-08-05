@@ -12,21 +12,6 @@ namespace core {
     {
     }
 
-    EnumConst Priority_Consts[] =
-    {
-        EnumConst("Fatal", kFatal),
-        EnumConst("Error", kError),
-        EnumConst("Force", kForce),
-        EnumConst("Warn",  kWarn),
-        EnumConst("Info",  kInfo),
-        EnumConst("Debug", kDebug),
-        EnumConst("Trace", kTrace),
-    };
-
-    // Create the enum type
-    Type Priority_Type = Reflect.createType<Priority>()
-        .EnumConstants(Priority_Consts);
-
     const char* Logger::priorityStrings[] =
     {
         "FATAL",
