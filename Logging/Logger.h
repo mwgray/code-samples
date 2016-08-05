@@ -18,21 +18,10 @@ namespace core  {
             kContinue,
         };
 
-        class LogMessage
-        {
-        public:
-            LargeStaticCharBuffer buffer;
-            const char* category;
-            Priority priority;
-            ErrorBehavior errorBehavior;
-        };
-
         Logger();
         
         virtual ~Logger();
 
-        virtual void bindFunctions(LuaContext* context) = 0;
-        
         virtual ErrorBehavior logVargs(Priority priority, const CompactStringDebug& category, const char* message, va_list& vargs) = 0;
 
         bool shouldLog(Priority priority, const CompactStringRelease& category);
