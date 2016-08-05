@@ -9,7 +9,6 @@ namespace core  {
         : public Subscription
     {
     public:
-        //TODO: check the order of all of these, and any <= operations
         enum Severity
         {
             kForce, // force is a special case, it will always be logged
@@ -26,23 +25,16 @@ namespace core  {
         
         virtual ~Logger();
 
-        virtual void logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs) = 0;
+        void ignore(const char* category);
 
         bool shouldLog(Severity severity, const CompactStringRelease& category);
 
-        void force(const char* category, const char* message, ...);
-        void trace(const char* category, const char* message, ...);
-        void debug(const char* category, const char* message, ...);
-        void info (const char* category, const char* message, ...);
-        void warn (const char* category, const char* message, ...);
-        void error(const char* category, const char* message, ...);
-        void fatal(const char* category, const char* message, ...);
+        void log(Severity severity, const char* category, const char* message, ...);
 
-        void ignore(const char* category);
+        virtual void logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs) = 0;
 
     protected:
         static const char* severityStrings[];
-        static int severityColors[];
 
         Subscription ignoreCategories;
     };

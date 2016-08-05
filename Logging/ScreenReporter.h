@@ -56,12 +56,12 @@ namespace core {
 
 #ifdef __HNS_LOGGING_ENABLED__
 
-#define reportFatal(category, message, ...) core::ScreenReporter::Instance().fatal(category, message, ## __VA_ARGS__)
-#define reportError(category, message, ...) core::ScreenReporter::Instance().error(category, message, ## __VA_ARGS__)
-#define  reportWarn(category, message, ...) core::ScreenReporter::Instance().warn (category, message, ## __VA_ARGS__)
-#define  reportInfo(category, message, ...) core::ScreenReporter::Instance().info (category, message, ## __VA_ARGS__)
-#define reportDebug(category, message, ...) core::ScreenReporter::Instance().debug(category, message, ## __VA_ARGS__)
-#define reportTrace(category, message, ...) core::ScreenReporter::Instance().trace(category, message, ## __VA_ARGS__)
+#define reportFatal(category, message, ...) core::ScreenReporter::Instance(core::Logger::kFatal, category, message, ## __VA_ARGS__)
+#define reportError(category, message, ...) core::ScreenReporter::Instance(core::Logger::kError, category, message, ## __VA_ARGS__)
+#define  reportWarn(category, message, ...) core::ScreenReporter::Instance(core::Logger::kWarn , category, message, ## __VA_ARGS__)
+#define  reportInfo(category, message, ...) core::ScreenReporter::Instance(core::Logger::kInfo , category, message, ## __VA_ARGS__)
+#define reportDebug(category, message, ...) core::ScreenReporter::Instance(core::Logger::kDebug, category, message, ## __VA_ARGS__)
+#define reportTrace(category, message, ...) core::ScreenReporter::Instance(core::Logger::kTrace, category, message, ## __VA_ARGS__)
 
 #else // __HNS_LOGGING_ENABLED__
 

@@ -23,16 +23,10 @@ namespace core {
         "FATAL",
     };
 
-    int Logger::severityColors[] =
+    void Logger::ignore(const char* category)
     {
-        0x000000, // kForce,
-        0xAAAAAA, // kTrace,
-        0x888888, // kDebug,
-        0x000000, // kInfo,
-        0x888800, // kWarn,
-        0x880000, // kError,
-        0xFF0000, // kFatal,
-    };
+        ignoreCategories.SubscribeTo(category);
+    }
 
     bool Logger::shouldLog(Severity severity, const CompactStringRelease& category)
     {
@@ -42,65 +36,15 @@ namespace core {
         return isError || (!isIgnored && (severity <= kWarn || IsSubscribedTo(category)));
     }
 
-    void Logger::fatal(const char* category, const char* message, ...)
+    void Logger::log(Severity severity, const char* category, const char* message, ...)
     {
-        va_list vargs;
-        va_start(vargs, message);
-        logVargs(kFatal, category, message, vargs);
-        va_end(vargs);
-    }
-
-    void Logger::error(const char* category, const char* message, ...)
-    {
-        va_list vargs;
-        va_start(vargs, message);
-        logVargs(kError, category, message, vargs);
-        va_end(vargs);
-    }
-
-    void Logger::force(const char* category, const char* message, ...)
-    {
-        va_list vargs;
-        va_start(vargs, message);
-        logVargs(kForce, category, message, vargs);
-        va_end(vargs);
-    }
-
-    void Logger::warn(const char* category, const char* message, ...)
-    {
-        va_list vargs;
-        va_start(vargs, message);
-        logVargs(kWarn , category, message, vargs);
-        va_end(vargs);
-    }
-
-    void Logger::info(const char* category, const char* message, ...)
-    {
-        va_list vargs;
-        va_start(vargs, message);
-        logVargs(kInfo , category, message, vargs);
-        va_end(vargs);
-    }
-
-    void Logger::debug(const char* category, const char* message, ...)
-    {
-        va_list vargs;
-        va_start(vargs, message);
-        logVargs(kDebug, category, message, vargs);
-        va_end(vargs);
-    }
-
-    void Logger::trace(const char* category, const char* message, ...)
-    {
-        va_list vargs;
-        va_start(vargs, message);
-        logVargs(kTrace, category, message, vargs);
-        va_end(vargs);
-    }
-
-    void Logger::ignore(const char* category)
-    {
-        ignoreCategories.SubscribeTo(category);
+        if(shouldLog(severity, category))
+        {
+            va_list vargs;
+            va_start(vargs, message);
+            logVargs(severity, category, message, vargs);
+            va_end(vargs);
+        }
     }
 
 } // namespace core
