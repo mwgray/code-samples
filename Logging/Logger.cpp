@@ -5,6 +5,8 @@
 namespace core {
 
     Logger::Logger()
+        : showAbove(kInfo)
+        , hideBelow(kInfo)
     {
     }
 
@@ -30,10 +32,29 @@ namespace core {
 
     bool Logger::shouldLog(Severity severity, const CompactStringRelease& category)
     {
-        bool isIgnored = ignoreCategories.IsSubscribedTo(category);
-        bool isError = severity <= kError;
+        if(severity == kForce)
+        {
+            // force is always shown
+            return true;
+        }
 
-        return isError || (!isIgnored && (severity <= kWarn || IsSubscribedTo(category)));
+        if(ignoreCategories.IsSubscribedTo(category))
+        {
+            // is an ignored category
+            return false;
+        }
+
+        if(severity > showAbove)
+        {
+            return true;
+        }
+
+        if(severity < hideBelow)
+        {
+            return false;
+        }
+
+        return IsSubscribedTo(category);
     }
 
     void Logger::log(Severity severity, const char* category, const char* message, ...)

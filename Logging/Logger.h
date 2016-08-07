@@ -21,6 +21,12 @@ namespace core  {
             kFatal,
         };
 
+        // always show severities above this, defaults to kInfo
+        Severity showAbove;
+
+        // always hide severities below this, defaults to kInfo
+        Severity hideBelow;
+
         Logger();
         
         virtual ~Logger();
