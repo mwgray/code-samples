@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-cmake .
+cmake . -DLOGGING_ENABLED=ON
 make
-./TweenerExample
+./LoggingExample
