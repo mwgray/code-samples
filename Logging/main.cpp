@@ -4,32 +4,13 @@
 #include "SimpleLogger.h"
 
 using namespace core;
-
-void InputTest(int count = 4) {
-    sinfo("UI", "User is checking inputs");
-    sinfo("Input", "Checking %d inputs", count);
-    swarn("Input", "There is a bad input count");
-    sinfo("UI", "Asking user if it is safe to continue");
-    sinfo("UI", "User said to continue");
-    sinfo("Input", "UI ignored safeguards");
-
-    for (int i = 0; i < count; ++i) {
-        strace("Input", "input %d is %s", i, i == count - 1 ? "bad!" : "good.");
-        strace("UI", "Showing input %d", i);
-    }
-    serror("Input", "Error reading inputs!");
-    sfatal("UI", "UI crashed due to bad input");
-
-    sforce("Example", "Done.\n");
-}
+#define COUNT_OF(x) ((sizeof(x)/sizeof(0[x])) / ((size_t)(!(sizeof(x) % sizeof(0[x])))))
 
 const char* lines[] = {
-    "10",
-    "-3",
-    "37",
+        "10",
+        "-3",
+        "37",
 };
-
-#define COUNT_OF(x) ((sizeof(x)/sizeof(0[x])) / ((size_t)(!(sizeof(x) % sizeof(0[x])))))
 
 class Reader {
 
@@ -45,11 +26,12 @@ public:
         for(int i = 0; i < outputCount; ++i)
         {
             strace("Reader", "Reading line %d", i);
-            strace("Reader", "Line %d is %s", i, lines[i]);
+            sdebug("Reader", "Line %d is %s", i, lines[i]);
             auto asInt = atoi(lines[i]);
             strace("Reader", "Converted %s to %d", lines[i], asInt);
 
             output[i] = asInt;
+            strace("Reader", "Stored %d in array as %u", asInt, output[i]);
         }
 
     }
@@ -75,7 +57,7 @@ public:
         sinfo("Average", "Averaging %u inputs", inputCount);
         int sum = 0;
         for (int i = 0; i < inputCount; ++i) {
-            strace("Average", "Inputs %d = %u", i, inputs[i]);
+            sdebug("Average", "Inputs %d = %u", i, inputs[i]);
             sum += inputs[i];
         }
         strace("Average", "Sum is %u", sum);
@@ -120,22 +102,35 @@ int main() {
 
     sinfo("Example", "Hmm, not much there, so lets increase the verbosity of the log");
 
-    SimpleLogger::instance.hideBelow = Logger::kTrace;
+    SimpleLogger::instance.hideBelow = Logger::kDebug;
 
     Test();
 
-//    SimpleLogger::instance.SubscribeToAll();
-//    SimpleLogger::instance.hideBelow = Logger::kTrace;
+    sinfo("Example", "Ah looks like the input is wrong.");
+    sinfo("Example", "At this point its not clear what is causing the error, so lets subscribe to all channels.");
+    SimpleLogger::instance.SubscribeToAll();
 
-    Test();return 0;
+    Test();
 
-    sforce("Example", "Looks like something went wrong with input, Lets subscribe to the channel Input");
-    SimpleLogger::instance.SubscribeTo("Input");
-
-    InputTest(testCount);
+    sinfo("Example", "Looks like there's an issue with the reader.");
+    sinfo("Example", "Seems like the reader has a unsigned/signed issue.");
+    sinfo("Example", "Lets increase the verbosity of the log once more.");
+    sinfo("Example", "In addition, since we know that the issue isn't with the Averager,");
+    sinfo("Example", "We don't need to see it's logs anymore.  We can unsubscribe from the channel");
+    sinfo("Example", "but since we're subscribe to all channels it will still output.");
+    sinfo("Example", "Instead, let's ignore the channel, which will also mute the initial warning.");
 
     SimpleLogger::instance.hideBelow = Logger::kTrace;
-    InputTest(testCount);
+    SimpleLogger::instance.ignore("Average");
+
+    Test();
+
+    sinfo("Example", "Bingo!  Now we know that there's a signing issue, it's storing -3 as 65533. Bug found!\n");
+
+    sinfo("Example", "This example isn't exactly as you would see it in the real world, but an illustrative example. You would likely\n"
+            "have a Logger that outputs to the TTY for what's important to the local programmer, and a Logger\n"
+            "that saves to a file with all log statements, and a Logger that displays frequenly changed values to the\n"
+            "screen");
 
     return 0;
 }
