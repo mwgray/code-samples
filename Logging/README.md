@@ -8,8 +8,13 @@ This is a collection of files that create a logging system.  Two concrete implem
 The basic usage comes down to logging call, which consists of the the following components:
 
 * A __category__, which allows for filtering during runtime.  For example, ui related logging uses the category "UI", physics would use "Physics", etc.
-* __Severity__, which is the traditional usual fatal error, warn, info, debug, trace.  Additionally, there is force, which basically forces a logging output, regardless of the category / severity. 
+* __Severity__, which is the traditional usual fatal error, warn, info, debug, trace.  Additionally, there is force, which always logs output, regardless of the category / severity.
 * The __message__ itself, which is a printf formatted string followed by the parameters.
+
+A logger can be configured via:
+
+* __Subscriptions__: If a category is subscribed to it will show logs from that category.
+* __Severity Filters__: By default, severities of warn and above are always shown, and severities below info are filtered out.  These can be changed to customize the verbosity of the logger.
 
 In order for a user to see a given log statement, they must be subscribed to that category. This offers some advantages:
 
@@ -22,7 +27,7 @@ Some additional features:
 * __Platform separation__ - PlatformPrint handles most of the platform separation.  In this project, it was Windows and Non-Windows platforms, which fit nicely into one file.  For projects with more platforms, you would separate these out into their own files. 
 * __Call tracking__ - each log call has it's file/line/function stored within the call, adding just a little more info to traceback to where the call happened.  When using an ide like visual studio, you can click on the logging line to take you to that line of code.  LogMarker handles a majority of this.
 * __Break behavior__ can be configured.  You can choose to break on a log statement, continue, or ignore all future logs of this type.  This is helpful in case there is a breaking log that you wish to stop seeing/breaking, like if an art resource is missing.
-* __Scripting__ - All logging subscriptions commands are exposed to the scripting TODO: LINK system, which allows for per-user configuration at runtime.
+* __Scripting__ - All logging subscriptions commands are exposed to the [scripting](/Scripting) system, which allows for per-user configuration at runtime.
 
 A note on macro programming... You may have notices that ConsoleLogger and ScreenReporter have some heavy macro programming.  While the setup code isn't the easiest to read, it's highly important to use for the logging systems:
 
