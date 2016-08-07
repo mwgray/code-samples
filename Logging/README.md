@@ -30,7 +30,7 @@ The common log calls are wrapped in help log macros.  While the setup code isn't
 
 Summaries of the files in this folder:
 
-* [Loggers/](Loggers) are a collection of more concrete loggers that I have used in production environments.
+* The [Loggers](Loggers) folder has a collection of more concrete loggers that I have used in production environments.
 * [Logger.h](Logger.h)/[cpp](Logger.cpp) is the abstract logger class.  It handles severities and category subscriptions.  To create a new logger, sub-class it and implement the `logVargs` function. 
 * [Subscription.h](Subscription.h)/[cpp](Subscription.cpp) tracks if a given category is subscribed to or not.
 * [SimpleLogger.h](SimpleLogger.h)/[cpp](SimpleLogger.cpp) is a very simple printf style logger.
