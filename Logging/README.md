@@ -24,7 +24,7 @@ In order for a user to see a given log statement, they must be subscribed to tha
  
 Summaries of the files in this folder:
 
-The (Loggers)[Loggers] folder have some additional loggers with additional features:
+The [Loggers](Loggers) folder have some additional loggers with additional features:
  
 * __Call tracking__ - each log macro has it's file/line/function stored within the call, adding just a little more info to traceback to where the call happened.  When using an ide like visual studio, you can click on the logging line to take you to that line of code.  LogMarker handles a majority of this.
 * __Break behavior__ can be configured.  You can choose to break on a log statement, continue, or ignore all future logs of this type.  This is helpful in case there is a breaking log that you wish to stop seeing/breaking, like if an art resource is missing.
