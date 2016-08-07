@@ -7,7 +7,7 @@ To Bind a member the following call is made:
 
 In this example the member variable `muteMusic` is exposed to lua as a global variable `muteMusic`.
 
-Here's some summaries of the files: 
+Summaries of the files in this folder: 
 
 * [Bind.h](Bind.h)/[cpp](Bind.cpp) is the main entry point for binding system.
 * [BoundMember.h](BoundMember.h)/[cpp](BoundMember.cpp) is the base storage class for bindings.  Holds the name of the variable, comments, and if it's a one-time boot variable.

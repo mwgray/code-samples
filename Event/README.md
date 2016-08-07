@@ -11,7 +11,7 @@ addEventListener(ProcessEvent::PROCESS_ENDED,      // Listen for the process end
 
 This listens for the process ended event, and calls handleProcessEnded when it is fired.  The final parameter removes the listener after the dispatch.
 
-Summaries of the files: 
+Summaries of the files in this folder: 
 
 * [Event.h](Event.h)/[cpp](Event.cpp) is the base Event class.  Simply subclass this to create custom events with parameters.
 * [EventDispatcher.h](EventDispatcher.h)/[cpp](EventDispatcher.cpp) does most of the work.  Add/removing listeners.  Templated functions simplify fucntor passing for the callers.

@@ -9,7 +9,7 @@ In this example, we are adding a function `log` to the `debug` context, which wi
 
 At first glance the binding code is a bit to take in.  This is mainly because this code was written before C++ had variadic template parameters and I had to explicitly make a function for each parameter count.  Each function 'group' is a set of template functions, with a specialization for 0 to 5 parameters.  Templates are also specialize with float, int, string, bool, since they are the only types easily translatable to Lua.
 
-Here's some summaries of the files: 
+Summaries of the files in this folder: 
 
 * [LuaBindingGameMode](LuaBindingGameMode.cpp) and [LuaContextTests](LuaContextTests.cpp) are good places to see how the user would use these classes.
 * [LuaScriptManager.h](LuaScriptManager.h)/[cpp](LuaScriptManager.cpp) is the entry point for most users.  Calling LuaScriptManagerLuaScriptManager::Instance().GetContext("context") will return a LuaContext, which you can then use to bind functions to.  You can then call LuaScriptManagerexecuteScriptLuaScriptManager on a LuaContext to run any script, with the bound functions exposed to lua script.
