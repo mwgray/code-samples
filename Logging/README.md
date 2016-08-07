@@ -36,4 +36,4 @@ Summaries of the files in this folder:
 * [SimpleLogger.h](SimpleLogger.h)/[cpp](SimpleLogger.cpp) is a very simple printf style logger.
 * [main.cpp](main.cpp) is a sample program to demonstrate some of the logging features.
 * [LoggingPch.h](LoggingPch.h) is a helper file to include dependnecies for the example.
-* [MakeAndRunDebug.sh](MakeAndRunDebug.sh)/[MakeAndRunRelease.sh](MakeAndRunRelease) are scripts that builds and runs the project with logging enabled/disabled at the compile stage.
+* [MakeAndRunDebug.sh](MakeAndRunDebug.sh)/[MakeAndRunRelease.sh](MakeAndRunRelease.sh) are scripts that builds and runs the project with logging enabled/disabled at the compile stage.
