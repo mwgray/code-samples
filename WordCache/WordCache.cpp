@@ -34,20 +34,32 @@ namespace core {
             textUnicodeIdx[unichr - text] = unichrCount++;
         }
 
+        printf("Checking string for phrases: '%s'\n", text);
+
         // go through all the words in the word cache
         for (U32 phraseIdx = 0; phraseIdx < mPhrases.size(); ++phraseIdx)
         {
-            const std::string& phraseString = getPhrase(phraseIdx);
-            const char* phrase = phraseString.c_str();
-            U32 phraseLen = phraseString.length();
+            auto phraseString = getPhrase(phraseIdx);
+            auto phrase = phraseString.c_str();
+            auto phraseLen = phraseString.length();
+
+            printf("Checking phrase: '%s'\n", phrase);
 
             // for each instance of phrase in the text
             const char* phraseInText = Utf8::StrStr(text, textLen, phrase, phraseLen);
+
+            if(phraseInText == nullptr)
+            {
+                printf("  Not Found.\n");
+            }
+
             while (phraseInText)
             {
                 // look up adjacent characters
                 const char* nextCharAddr = phraseInText + phraseLen;
                 U32 nextChar = Utf8::Decode(nextCharAddr);
+
+                printf("  Found at index: '%d'\n", phraseInText - text);
 
                 const char* prevCharAddr;
                 U32 prevChar;
@@ -77,6 +89,8 @@ namespace core {
                 else if (iswalpha((wint_t)prevChar) ||
                          iswalpha((wint_t)nextChar))
                 {
+                    printf("  REJECTED because it is not a whole word match.\n");
+
                     isMatch = false;
                 }
                 // 3) Reject contractions.
@@ -85,13 +99,18 @@ namespace core {
                          prevCharAddr != text &&
                          iswalpha((wint_t)Utf8::Decode(Utf8::PrevChar(prevCharAddr)))) // check left
                 {
+                    printf("  REJECTED because it is the right part of a contraction.\n");
+
                     isMatch = false;
+
                 }
                 else if (nextChar == '\'' &&
                          nextCharAddr != textEnd &&
                          iswalpha((wint_t)Utf8::Decode(Utf8::NextChar(nextCharAddr)))) // check right
                 {
                     isMatch = false;
+
+                    printf("  REJECTED because it is the left part of a contraction.\n");
                 }
                 // 4) Otherwise, accept
                 else
@@ -102,6 +121,8 @@ namespace core {
                 // handle match, increment and search for next instance of phrase
                 if (isMatch)
                 {
+                    printf("  ACCEPTED, invalidating characters in source string.\n");
+
                     // replace phrase in text with *'s so it isn't flagged for further matches
                     memset(const_cast<char*>(phraseInText), '*', phraseLen);
 
@@ -111,6 +132,8 @@ namespace core {
                     matches.push_back(m);
 
                     phraseInText = nextCharAddr;
+
+                    printf("  Source string is now %s\n", text);
                 }
                 else
                 {
