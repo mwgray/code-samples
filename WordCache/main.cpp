@@ -1,12 +1,11 @@
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-using namespace core;
-
+#include "WordCachePch.h"
 #include "WordCache.h"
 
+using namespace core;
+
 int main() {
+
+    WordCache wordCache;
 
     return 0;
 }

@@ -7,10 +7,8 @@ namespace core {
 
     // Collection of phrases, with lists to associate with each phrase.
     // Data is organized for fast lookup.
-    class WordCache : public Phyre::PBase
+    class WordCache
     {
-        PHYRE_BIND_DECLARE_CLASS(WordCache, PBase);
-
     protected:
         U32 mPhraseCount; // All arrays (besides the buffers) are the same length. This variable is unnecessary, but nice to have.
 

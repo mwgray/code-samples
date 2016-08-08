@@ -1,7 +1,6 @@
-#include "PhyreCorePCH.h"
+#include "WordCachePch.h"
 
-#include "HumaNature/Doki/WordCache.h"
-#include "HumaNature/String/Utf8.h"
+#include "WordCache.h"
 
 #ifdef PHYRE_TOOL_BUILD
 #include <../../rapidjson/reader.h>
@@ -9,17 +8,17 @@
 
 namespace core {
     using namespace Phyre;
-    PHYRE_BIND_START(WordCache)
-        PHYRE_ADD_MEMBER_FLAGS(DataMember, Phyre::PE_CLASS_DATA_MEMBER_READ_ONLY)
-            PHYRE_BIND_CLASS_DATA_MEMBER(mPhraseCount)
-            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mPhraseBuffer, PChar)
-            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mPhrasesStart, PUInt32)
-            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mPhrasesLength, PUInt8)
-            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mDekoBuffer, PUInt16)
-            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mDekosStart, PUInt32)
-            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mDekosStarred, PUInt8)
-            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mDekosUnstarred, PUInt8)
-    PHYRE_BIND_END
+//    PHYRE_BIND_START(WordCache)
+//        PHYRE_ADD_MEMBER_FLAGS(DataMember, Phyre::PE_CLASS_DATA_MEMBER_READ_ONLY)
+//            PHYRE_BIND_CLASS_DATA_MEMBER(mPhraseCount)
+//            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mPhraseBuffer, PChar)
+//            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mPhrasesStart, PUInt32)
+//            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mPhrasesLength, PUInt8)
+//            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mDekoBuffer, PUInt16)
+//            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mDekosStart, PUInt32)
+//            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mDekosStarred, PUInt8)
+//            PHYRE_BIND_CLASS_DATA_MEMBER_PHYRE_ARRAY(mDekosUnstarred, PUInt8)
+//    PHYRE_BIND_END
 
     const U32 WordCache::kPhraseNotFound = 0xFFFFFFFF;
 
