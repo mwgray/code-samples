@@ -22,7 +22,8 @@ public:
 
 int main() {
 
-    SimpleLogger::instance.SubscribeTo("Word Cache");
+    SimpleLogger::Create();
+    SimpleLogger::Instance().SubscribeTo("Word Cache");
 
     SampleWordCache wordCache;
 
