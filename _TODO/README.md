@@ -1,33 +1,22 @@
-#TODO
+# Model View Controller Generator
 
-* MVC
-* [UI](/UI) is a rather old UI system that I wrote for the [Nintendo DS](https://en.wikipedia.org/wiki/Nintendo_DS) platform
-* [Word Cache](/WordCache) is an algorithm I wrote for the [Doki-Doki Universe](https://www.youtube.com/watch?v=H7hFijr5v-c) instant messenger app.  The system needed a way highlight phrases in a user typed message using a dictionary with ~100k words.
+# DISCLAIMER 
+This code isn't very well commented or documented.  I included it because it's the kind of thing I really like doing, creating tools tha simplify some of the tedious aspects of day-to-day programming.  If have looked at my other samples and you are still interested in how my coding brain works, go for it!  But do check out my other samples first, they are much more coherent :-)
 
-As I wrote this, I realized this is an all encompassing UI system design, take from it what you will...
+####Overview
 
-Game projects typically have millions of LoC and long compile build times, so each tweak of a variable can take minutes for developers.  These are systems that facilitate that kind of work flow.
+This is a tool I wrote to facilitate writing the 'glue' code for traditional [Model-View-Controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) systems.  More often than not I find myself bogged down in writing maintaining bindings for these types of classes, when a lot of it can be automated.  Thus this system was born.
 
-Similarly, when a game is shipped, every cycle counts, so being able to strip a lot of the debugging code out of the project is a necessity.  To this end a lot of macro/template meta-programming is used to configure what code is present at compile time.
+It was written in C#, so I can take advantage of C# Attributes and reflection to create a system of hints for an exporter.
 
-My philosophy is to make the end code readable and the setup code complex.
+####Thoughts
 
-# System Desing
-* Game dev doesn't have a lot of UI options available(at least not back)
-* Would probably just get something off the shelf these days
+Using C# as the source date format was an quick way to get this system off the ground, but it ended up being tedious in the end.  I did so to avoid having to write my own parser, and annotating classes with attributes seemed like a quick way to get things started.  It worked out pretty well at the beginning when I was building the tool, but once I started using it for my own projects the cracks began to show.  The main problem was any model changes required they tool to be recompiled and run, which in turn requires the main project to be compiled an run again.  I think what's there is a good foundation, it's just the input needs changing to a format that is data-driven, and easy to read. 
 
-#MVC
-* Code annotations
-* Detect dependencies
-* Code generator
-* Runtime uses subscriptsion to update dependeencies invisible to the user, be it caclcuatioed properties or views of the element
+####Summaries of folders
 
-# UI
-* Rather old UI system, but basics are there
-* Go file by file ensure a decent structure is there
-* watch out for function based events
-
-# Word Cache
-* point out the algorithm, describe it
-* talk about tradeoffs, not big eough for speed
-* might use a trie if written again
+* [MVCPreCompiler](MVCPreCompiler/) is the tool that compiles the project.  It is divided into the code that does the C# class parsing, and templates, which are used to output the resultant C# files.
+* [PlatformerDataModel](PlatformerDataModel/) is the source and output format from a project I used this on.
+    * [src/Systems](PlatformerDataModel/src/Systems/) contains the source files with classes that have attributes for the exporter.
+    * [src/EXTERNAL](PlatformerDataModel/src/EXTERNAL/) is a file with mock classes that are needed by the exporter tool, but are included in the fuller project.
+    * [Output](PlatformerDataModel/Output/) contains the source files with classes that have attributes for the exporter.  Each System has a `$Generated` file which sets up all the scaffolding code.  In addition, each concrete class has its own file.
