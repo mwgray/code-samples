@@ -26,6 +26,6 @@ File breakdowns:
 
 ####Something completely different
 
-Dependency graphs are just one type of graph that the process system can use.  In a previous project I also had an execution flow graph to manage the flow of gameplay.  This is out of the scope of this example, but I've included it as an sample of what else is possible.
+Dependency graphs are just one type of graph that the process system can use.  In a previous project I also had an execution flow graph to manage the flow of gameplay.  This is out of the scope of this example, but I've included it as an sample of what else is possible.  Similar to the dependency graph, a tool would export this to actionscript code which would determin the flow of gameplay.  Each node corresponded to a chunk of code.  Each edge would represent the end of that code executing.  You can see there are some if-like nodes that control execution flow.  This system was very helpful as it allowed us to prototype gameplay ideas quickly. Code was heavily decoupled and re-ordering operations was just a simple as updating the graph.
 
 ![](Master Sparring Gameplay Flow.png)
