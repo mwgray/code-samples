@@ -22,7 +22,7 @@ File breakdowns:
 * [DependencyGraphNode.h](DependencyGraphNode.h)/[cpp](DependencyGraphNode.cpp) is the base node class for the graph.  Has an ID and a list of nodes it is dependent on.  The graph nodes are just data, they don't handle active or cleared dependencies.
 * [DependencyGraphTraverser.h](DependencyGraphTraverser.h)/[cpp](DependencyGraphTraverser.cpp) is the class that traverses the graph.  It tracks cleared and active dependencies.  A callback can be supplied to execute specific code.  You can use more than one traverser on the same graph.
 * [DependencyGraphProcess.h](DependencyGraphProcess.h)/[cpp](DependencyGraphProcess.cpp) is a process class that simply takes a dependency graph and notifies when the graph has completed execution.
-* [ProcessTraverserCallback.h](ProcessTraverserCallback.h)/[cpp](DependencyGraphCallback.cpp) is where all the work of DependencyGraphProcess happens.  This class takes each node in the graph and maps it to a process class which is executed during a traversal.  When the process is complete, it notifies the traverser to update any dependencies.
+* [ProcessTraverserCallback.h](ProcessTraverserCallback.h)/[cpp](ProcessTraverserCallback.cpp) is where all the work of DependencyGraphProcess happens.  This class takes each node in the graph and maps it to a process class which is executed during a traversal.  When the process is complete, it notifies the traverser to update any dependencies.
 
 ####Something completely different
 
