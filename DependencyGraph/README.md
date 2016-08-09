@@ -7,7 +7,7 @@ Dependency graphs are where it all comes together!  By using the process class, 
 I used [yEd](https://www.yworks.com/products/yed) to create dependency graphs visually, and a separate tool I wrote converted the xml from yEd to lua files which in turn creates the dependency graphs in C++ during execution.  Using the yEd tool is useful, because the moment you realize one process is dependent on another, all you have to do is draw the dependency line and the code will execute accordingly.
 
 ####Sample Graph
-[Here](BootupDependencyGraph.png) is an example of a graph. Each node represents a [Process](/Process) sub-class, and dependencies are represented by arrows.  If a arrow points to a group, then all processes in that group must complete first.  This specific graph was used for logging into our instant messaging system [Doki-Doki Mail](https://www.youtube.com/watch?v=H7hFijr5v-c).  Some details:  
+![Here](BootupDependencyGraph.png) is an example of a graph. Each node represents a [Process](/Process) sub-class, and dependencies are represented by arrows.  If a arrow points to a group, then all processes in that group must complete first.  This specific graph was used for logging into our instant messaging system [Doki-Doki Mail](https://www.youtube.com/watch?v=H7hFijr5v-c).  Some details:  
 * The __Core Setup__ group at the left grabs the Facebook ID and sets up Google analytics.
 * The __Load From CDN__ has no dependencies, as it is loading resources from a server, so it can start right away.
 * The __Fetch From Server__ pulls a bunch of relavant data from our server to the runtime.  Since we need a Facebook ID for this, it is dependent on the Core Setup group
