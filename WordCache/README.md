@@ -36,3 +36,4 @@ Clearly this would be a great improvement, as now it is just O(N) where N is the
 * [WordCache.h](WordCache.h)/[cpp](WordCache.cpp) is a simplified version of the word cache, used to demonstrate the `FindMatches` function.
 * [Utf8.h](Utf8.h)/[cpp](Utf8.cpp) is a helper class for translating UTF-8 character strings.
 * [WordCachePch.h](WordCachePch.h) is a helper file to include dependencies for the example.
+* The word cache sample here is a stripped down version of the one that shipped. The [Production](Production/) folder contains the fuller version.  A lot of the pipeline code was written by others, but I included it in case you wanted to see what it looked like in the fuller context of things.
