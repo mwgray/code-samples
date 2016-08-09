@@ -34,7 +34,7 @@ namespace core {
 
         Singleton()
         {
-            // remove from global list
+            // add to global list
             (*SingletonBase::sSingletonMap)[GetCoreTypeName<SingletonType>()] = this;
         }
 
@@ -42,6 +42,7 @@ namespace core {
         {
             if (sInstance == this)
             {
+                // remove from global list
                 auto it = SingletonBase::sSingletonMap->find(GetCoreTypeName<SingletonType>());
                 SingletonBase::sSingletonMap->erase(it);
                 sInstance = nullptr;
