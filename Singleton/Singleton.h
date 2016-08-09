@@ -35,7 +35,7 @@ namespace core {
         Singleton()
         {
             // add to global list
-            (*SingletonBase::sSingletonMap)[GetCoreTypeName<SingletonType>()] = this;
+            (*SingletonBase::sSingletonMap)[GetTypeName<SingletonType>()] = this;
         }
 
         virtual ~Singleton()
@@ -43,7 +43,7 @@ namespace core {
             if (sInstance == this)
             {
                 // remove from global list
-                auto it = SingletonBase::sSingletonMap->find(GetCoreTypeName<SingletonType>());
+                auto it = SingletonBase::sSingletonMap->find(GetTypeName<SingletonType>());
                 SingletonBase::sSingletonMap->erase(it);
                 sInstance = nullptr;
             }

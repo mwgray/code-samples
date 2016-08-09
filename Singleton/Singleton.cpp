@@ -1,13 +1,9 @@
 // Copyright 2006-13 HumaNature Studios Inc.
 
-#include "PhyreCorePch.h"
-
-#include "Humanature/Templates/Singleton/Singleton.h"
+#include "SingletonPch.h"
 
 namespace core {
 
-    std::map<std::string, SingletonHolderBase*>* SingletonHolderBase::sSingletonMap;
-
-    
+    std::map<std::string, SingletonBase*>* SingletonBase::sSingletonMap = new std::map<std::string, SingletonBase*>();
 
 } // namespace core
