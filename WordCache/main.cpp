@@ -22,6 +22,8 @@ public:
 
 int main() {
 
+    SimpleLogger::instance.SubscribeTo("Word Cache");
+
     SampleWordCache wordCache;
 
     std::vector<WordCache::Match> matches;
@@ -30,7 +32,7 @@ int main() {
 
     wordCache.findMatches(s.c_str(), matches);
 
-    printf("Match count: %u\n", matches.size());
+    sinfo("Word Cache", "Match count: %u", matches.size());
 
     auto i = matches.begin();
     auto e = matches.end();
@@ -39,7 +41,7 @@ int main() {
         auto match = *i;
         auto phrase = wordCache.getPhrase(match.phraseIndex);
 
-        printf("Found phrase '%s' at index '%u'\n", phrase.c_str(), match.phraseInTextUnicodeIndex);
+        sinfo("Word Cache", "Found phrase '%s' at index '%u'", phrase.c_str(), match.phraseInTextUnicodeIndex);
     }
 
     return 0;
