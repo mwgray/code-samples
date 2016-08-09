@@ -8,7 +8,7 @@ Here's a quick rundown of the systems
 * [Singleton](/Singleton) is a templated version of the singleton design pattern.  Don't leave home without it!
 * [Compact Strings](/CompactString) are an optimization for strings when only comparisons are needed.
 * [WordCache](/WordCache) is an data structure and algorithm I wrote to highlight a string using words supplied by a dictionary of multi word phrases. 
-* [Tweener](/Tweener) is a simple tweening system I wrote, mainly to facilitate smooth transitions in UI code.
+* [Tweener](/Tweener) is a simple tweening system and easing algorithm collection I wrote, mainly to facilitate smooth transitions in UI code.
 
 #### Improvements / Notes
 * Most of this code was written prior to C++11 availability, so you're going to see a lot of template meta-magic.  If I were to write some of these today, I would likely take advantage of C++11's features to simplify the code.  Variadic templates and lambdas would simplify a lot of the code here.
