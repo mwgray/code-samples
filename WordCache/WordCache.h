@@ -15,14 +15,9 @@ namespace core {
     public:
         struct Match
         {
-            unsigned int phraseIndex; // phrase's index in word cache
+            const std::string& phrase;             // the matching phrase
             unsigned int phraseInTextUnicodeIndex; // Number of UTF-8 characters preceding phrase in text (not the byte index)
         };
-
-        inline const std::string& getPhrase(unsigned int index) const
-        {
-            return mPhrases[index];
-        }
 
         // Search text for phrases. Fill outMatches with results.
         // text will be altered by this function.

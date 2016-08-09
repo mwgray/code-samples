@@ -37,9 +37,12 @@ namespace core {
         sinfo("Word Cache", "Checking string for phrases: '%s'", text);
 
         // go through all the words in the word cache
-        for (U32 phraseIdx = 0; phraseIdx < mPhrases.size(); ++phraseIdx)
+        auto i = mPhrases.begin();
+        auto e = mPhrases.end();
+
+        for (; i != e; ++i)
         {
-            auto phraseString = getPhrase(phraseIdx);
+            const std::string& phraseString = *i;
             auto phrase = phraseString.c_str();
             auto phraseLen = phraseString.length();
 
@@ -128,7 +131,7 @@ namespace core {
 
                     // find unicode index of phrase in original string
                     U32 phraseInTextUnicodeIdx = textUnicodeIdx[phraseInText - text];
-                    const Match m = {phraseIdx, phraseInTextUnicodeIdx};
+                    const Match m = { phraseString, phraseInTextUnicodeIdx };
                     matches.push_back(m);
 
                     phraseInText = nextCharAddress;
