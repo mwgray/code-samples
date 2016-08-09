@@ -31,7 +31,7 @@ Had the dictionary been much larger, and performace needed improvement I would h
 1. At this point the match(if found) would be recorded and we would reset the trie iterator and continue iterating the source string.
 Clearly this would be a great improvement, as now it is just O(N) where N is the length of the string.  Memory usage might go up as each character would need a list of nodes, but I suspect it would be worth the trade-off.
 
-####Summaries of the files in this folder:
+####Summaries of the files in this folder
 
 * [WordCache.h](WordCache.h)/[cpp](WordCache.cpp) is a simplified version of the word cache, used to demonstrate the `FindMatches` function.
 * [Utf8.h](Utf8.h)/[cpp](Utf8.cpp) is a helper class for translating UTF-8 character strings.

@@ -7,7 +7,7 @@ These are a pair of loggers I've used in many console projects. There are some a
 * __Scripting__ - All logging subscriptions commands are exposed to the [scripting](/Scripting) system, which allows for per-user configuration at runtime.
 * __Platform separation__ - PlatformPrint handles most of the platform separation.  In this project, it was Windows and Non-Windows platforms, which fit nicely into one file.  For projects with more platforms, you would separate these out into their own files. 
 
-Summaries of the files in this folder:
+####Summaries of the files in this folder
 
 * [ConsoleLogger.h](ConsoleLogger.h)/[cpp](ConsoleLogger.cpp): A simple TTY logger.  Spits out logs to the consoles TTY using PlatformPrint.  Also has some break/continue/ignore functionality. 
 * [ScreenReporter.h](ScreenReporter.h)/[cpp](ScreenReporter.cpp): An on screen logger.  Log calls are rendered on top of the render target, and must be called every frame.  This allows for viewing specific values change over time, which can be easier to read when running at 60fps.  It also reduces console log spam, since these calls can be seen on screen, as opposed to in bulk in the console log.
