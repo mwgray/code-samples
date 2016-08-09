@@ -78,7 +78,6 @@ namespace core {
                 }
 
                 // accept or reject match based on further criteria:
-                // TODO: what about non-english languages?
                 bool isMatch;
                 // 1) Always accept phrases of single-character-punctuation.
                 //      - ex: "!"
