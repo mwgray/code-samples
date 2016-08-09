@@ -5,10 +5,11 @@ Here's a quick rundown of the systems
 
 * Whenever I start a new project or working on a new platform, I ensure a good set of debugging facilities are available.  [Logging](/Logging), [Variable Binding](/Binding) and [Runtime Scripting](/Scripting) are a good start.    
 * The [Process](/Process), [Event](/Event) and [Dependency Graph](/DependencyGraph) systems work together closely to help keep initialization requirements decoupled and execute in the correct order.
+* [WordCache](/WordCache) is an data structure and algorithm I wrote to highlight a string using words supplied by a dictionary of multi word phrases. 
 * [Singleton](/Singleton) is a templated version of the singleton design pattern.  Don't leave home without it!
 * [Compact Strings](/CompactString) are an optimization for strings when only comparisons are needed.
-* [WordCache](/WordCache) is an data structure and algorithm I wrote to highlight a string using words supplied by a dictionary of multi word phrases. 
 * [Tweener](/Tweener) is a simple tweening system and easing algorithm collection I wrote, mainly to facilitate smooth transitions in UI code.
+* [_MVCGenerator](_MVCGenerator/) If you've made it this far and are looking for some more, I've thown in a Model View Controller generator for you to pick at.  Be warned, it's has minimal comments/docs!
 
 #### Improvements / Notes
 * Most of this code was written prior to C++11 availability, so you're going to see a lot of template meta-magic.  If I were to write some of these today, I would likely take advantage of C++11's features to simplify the code.  Variadic templates and lambdas would simplify a lot of the code here.
