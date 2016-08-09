@@ -1,14 +1,14 @@
 # code-samples
 Here is a collection of some systems from my most recent projects.  More details are provided in each folder's accompanying README.md.
 
-Here's a quick rundown of the systems
+Here's a quick rundown of the systems.  __Bold__ systems include buildable projects.
 
-* Whenever I start a new project or working on a new platform, I ensure a good set of debugging facilities are available.  [Logging](/Logging), [Variable Binding](/Binding) and [Runtime Scripting](/Scripting) are a good start.    
+* Whenever I start a new project or working on a new platform, I ensure a good set of debugging facilities are available.  __[Logging](/Logging)__, [Variable Binding](/Binding) and [Runtime Scripting](/Scripting) are a good start.    
 * The [Process](/Process), [Event](/Event) and [Dependency Graph](/DependencyGraph) systems work together closely to help keep initialization requirements decoupled and execute in the correct order.
-* [WordCache](/WordCache) is an data structure and algorithm I wrote to highlight a string using words supplied by a dictionary of multi word phrases. 
+* __[WordCache](/WordCache)__ is an data structure and algorithm I wrote to highlight a string using words supplied by a dictionary of multi word phrases. 
 * [Singleton](/Singleton) is a templated version of the singleton design pattern.  Don't leave home without it!
 * [Compact Strings](/CompactString) are an optimization for strings when only comparisons are needed.
-* [Tweener](/Tweener) is a simple tweening system and easing algorithm collection I wrote, mainly to facilitate smooth transitions in UI code.
+* __[Tweener](/Tweener)__ is a simple tweening system and easing algorithm collection I wrote, mainly to facilitate smooth transitions in UI code.
 * If you've made it this far and are looking for some more, I've thown in a [Model View Controller generator](_MVCGenerator/) for you to pick at.  Be warned, it's has minimal comments/docs!
 
 #### Improvements / Notes
