@@ -7,6 +7,7 @@ Here's a quick rundown of the systems
 * The [Process](/Process), [Event](/Event) and [Dependency Graph](/DependencyGraph) systems work together closely to help keep initialization requirements decoupled and execute in the correct order.
 * [Singleton](/Singleton) is a templated version of the singleton design pattern.  Don't leave home without it!
 * [Compact Strings](/CompactString) are an optimization for strings when only comparisons are needed.
+* [WordCache](/WordCache) is an data structure and algorithm I wrote to highlight a string using words supplied by a dictionary of multi word phrases. 
 * [Tweener](/Tweener) is a simple tweening system I wrote, mainly to facilitate smooth transitions in UI code.
 
 #### Improvements / Notes
