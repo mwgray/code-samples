@@ -4,7 +4,7 @@
 
 This is a simple Tweening system I loosely ported from an ActionScript library.  It was used extensively when implementing UI transitions and effects.  You can see examples of the transitions [here](http://hosted.zeh.com.br/tweener/docs/en-us/misc/transitions.html) (this is from the ActionScript library documentation).
 
-Example usage (from main.cpp demo file):
+Example usage:
 ```
 Tweener.addTween("TestTween")
         .delay(0.5)                                 // wait 0.5 seconds before starting the tween
