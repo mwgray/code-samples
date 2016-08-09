@@ -12,6 +12,9 @@ In this example, we are adding a function `log` to the `debug` context, which wi
 
 At first glance the binding code is a bit to take in.  This is mainly because this code was written before C++ had variadic template parameters and I had to explicitly make a function for each parameter count.  Each function 'group' is a set of template functions, with a specialization for 0 to 5 parameters.  Templates are also specialize with float, int, string, bool, since they are the only types easily translatable to Lua.
 
+####A note on reflection
+Since C++ is lacking in any robust reflection system, the binding of classes to Lua is a bit tedious.  We didn't have much needs beyond manual binding in our projects, so this system worked fine as is.  However, if we needed more automatic binding to gameplay objects, we would likely want to add a reflection system to the mix.  With that in place we can then automatically bind to Lua using reflection.
+
 ####Summaries of the files in this folder 
 
 * [LuaBindingGameMode](LuaBindingGameMode.cpp) and [LuaContextTests](LuaContextTests.cpp) are good places to see how the user would use these classes.
