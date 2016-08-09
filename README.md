@@ -9,7 +9,7 @@ Here's a quick rundown of the systems
 * [Singleton](/Singleton) is a templated version of the singleton design pattern.  Don't leave home without it!
 * [Compact Strings](/CompactString) are an optimization for strings when only comparisons are needed.
 * [Tweener](/Tweener) is a simple tweening system and easing algorithm collection I wrote, mainly to facilitate smooth transitions in UI code.
-* [_MVCGenerator](_MVCGenerator/) If you've made it this far and are looking for some more, I've thown in a Model View Controller generator for you to pick at.  Be warned, it's has minimal comments/docs!
+* If you've made it this far and are looking for some more, I've thown in a [Model View Controller generator](_MVCGenerator/) for you to pick at.  Be warned, it's has minimal comments/docs!
 
 #### Improvements / Notes
 * Most of this code was written prior to C++11 availability, so you're going to see a lot of template meta-magic.  If I were to write some of these today, I would likely take advantage of C++11's features to simplify the code.  Variadic templates and lambdas would simplify a lot of the code here.
