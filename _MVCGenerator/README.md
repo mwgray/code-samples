@@ -17,6 +17,6 @@ Using C# as the source date format was an quick way to get this system off the g
 
 * [MVCPreCompiler](MVCPreCompiler/) is the tool that compiles the project.  It is divided into the code that does the C# class parsing, and templates, which are used to output the resultant C# files.
 * [PlatformerDataModel](PlatformerDataModel/) is the source and output format from a project I used this on.
-    * [src/Systems](PlatformerDataModel/src/Systems/) contains the source files with classes that have attributes for the exporter.
-    * [src/EXTERNAL](PlatformerDataModel/src/EXTERNAL/) is a file with mock classes that are needed by the exporter tool, but are included in the fuller project.
+    * [Systems](PlatformerDataModel/src/Platformer/Systems/) contains the source files with classes that have attributes for the exporter.
+    * [EXTERNAL](PlatformerDataModel/src/Platformer/EXTERNAL/) is a file with mock classes that are needed by the exporter tool, but are included in the fuller project.
     * [Output](PlatformerDataModel/Output/) contains the source files with classes that have attributes for the exporter.  Each System has a `$Generated` file which sets up all the scaffolding code.  In addition, each concrete class has its own file.
