@@ -4,7 +4,7 @@
 
 The process classes are a way of compartmentalizing sections of code into objects that can be grouped and re-arranged.  Once a process is kicked off you wait for the end event to be fired to indicate it is finished with the process.  Similar to Apple's NSOperation class.  
 
-[Dependency Graphs](/DependencyGraph) has a complex and much more interesting examples of using processes!
+By itself process seems a little dull on the surface.  However, [Dependency Graphs](/DependencyGraph) has a complex and much more interesting examples of using them!
   
 ####Summaries of the files in this folder 
 
