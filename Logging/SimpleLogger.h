@@ -5,10 +5,9 @@ namespace core  {
 
     class SimpleLogger
         : public Logger
+        , public Singleton<SimpleLogger>
     {
     public:
-        static SimpleLogger instance;
-
         virtual void logVargs(Severity severity, const CompactStringDebug& category, const char* message, va_list& vargs);
     };
 
@@ -16,13 +15,13 @@ namespace core  {
 
 #ifdef __LOGGING_ENABLED__
 
-#define strace(category, message, ...) SimpleLogger::instance.log(Logger::kTrace, category, message, ## __VA_ARGS__)
-#define sdebug(category, message, ...) SimpleLogger::instance.log(Logger::kDebug, category, message, ## __VA_ARGS__)
-#define sforce(category, message, ...) SimpleLogger::instance.log(Logger::kForce, category, message, ## __VA_ARGS__)
-#define  sinfo(category, message, ...) SimpleLogger::instance.log(Logger::kInfo , category, message, ## __VA_ARGS__)
-#define  swarn(category, message, ...) SimpleLogger::instance.log(Logger::kWarn , category, message, ## __VA_ARGS__)
-#define serror(category, message, ...) SimpleLogger::instance.log(Logger::kError, category, message, ## __VA_ARGS__)
-#define sfatal(category, message, ...) SimpleLogger::instance.log(Logger::kFatal, category, message, ## __VA_ARGS__)
+#define strace(category, message, ...) SimpleLogger::Instance().log(Logger::kTrace, category, message, ## __VA_ARGS__)
+#define sdebug(category, message, ...) SimpleLogger::Instance().log(Logger::kDebug, category, message, ## __VA_ARGS__)
+#define sforce(category, message, ...) SimpleLogger::Instance().log(Logger::kForce, category, message, ## __VA_ARGS__)
+#define  sinfo(category, message, ...) SimpleLogger::Instance().log(Logger::kInfo , category, message, ## __VA_ARGS__)
+#define  swarn(category, message, ...) SimpleLogger::Instance().log(Logger::kWarn , category, message, ## __VA_ARGS__)
+#define serror(category, message, ...) SimpleLogger::Instance().log(Logger::kError, category, message, ## __VA_ARGS__)
+#define sfatal(category, message, ...) SimpleLogger::Instance().log(Logger::kFatal, category, message, ## __VA_ARGS__)
 
 #else // __LOGGING_ENABLED__
 

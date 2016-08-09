@@ -6,7 +6,7 @@
 
 namespace core {
 
-    SimpleLogger SimpleLogger::instance;
+    DEFINE_SINGLETON_TYPE(core, SimpleLogger);
 
     void SimpleLogger::logVargs(Severity severity, const CompactStringDebug &category, const char *message, va_list &vargs)
     {

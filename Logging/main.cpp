@@ -80,13 +80,15 @@ void Test() {
 
 int main() {
 
+    SimpleLogger::Create();
+
     int testCount = 3;
 
     sforce("Example", "By default, the logger is not subscribed to any categories");
     sforce("Example", "But force logs are always shown");
     sforce("Example", "Lets subscribe to 'Example' so we can see logs without using force");
 
-    SimpleLogger::instance.SubscribeTo("Example");
+    SimpleLogger::Instance().SubscribeTo("Example");
 
     sinfo("Example", "Ah that's better!  Lets run a quick averaging test");
 
@@ -96,19 +98,19 @@ int main() {
     sinfo("Example", "By default warnings and above are shown regardless of subscriton.");
     sinfo("Example", "But there is no output for the averager, so lets subscribe to that channel");
 
-    SimpleLogger::instance.SubscribeTo("Average");
+    SimpleLogger::Instance().SubscribeTo("Average");
 
     Test();
 
     sinfo("Example", "Hmm, not much there, so lets increase the verbosity of the log");
 
-    SimpleLogger::instance.hideBelow = Logger::kDebug;
+    SimpleLogger::Instance().hideBelow = Logger::kDebug;
 
     Test();
 
     sinfo("Example", "Ah looks like the input is wrong.");
     sinfo("Example", "At this point its not clear what is causing the error, so lets subscribe to all channels.");
-    SimpleLogger::instance.SubscribeToAll();
+    SimpleLogger::Instance().SubscribeToAll();
 
     Test();
 
@@ -120,8 +122,8 @@ int main() {
     sinfo("Example", "but since we're subscribe to all channels it will still output.");
     sinfo("Example", "Instead, let's ignore the channel, which will also mute the initial warning.");
 
-    SimpleLogger::instance.hideBelow = Logger::kTrace;
-    SimpleLogger::instance.ignore("Average");
+    SimpleLogger::Instance().hideBelow = Logger::kTrace;
+    SimpleLogger::Instance().ignore("Average");
 
     Test();
 

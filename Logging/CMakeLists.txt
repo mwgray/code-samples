@@ -11,5 +11,5 @@ ENDIF(LOGGING_ENABLED)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES Subscription.cpp Logger.cpp SimpleLogger.cpp main.cpp)
+set(SOURCE_FILES Subscription.cpp Logger.cpp SimpleLogger.cpp main.cpp ../Singleton/Singleton.cpp)
 add_executable(LoggingExample ${SOURCE_FILES})

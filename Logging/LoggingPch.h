@@ -11,6 +11,8 @@
 typedef std::string CompactStringRelease;
 typedef std::string CompactStringDebug;
 
+#include "../Singleton/SingletonPch.h"
+
 #include "Subscription.h"
 #include "Logger.h"
 

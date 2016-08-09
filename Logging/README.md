@@ -35,5 +35,5 @@ Summaries of the files in this folder:
 * [Subscription.h](Subscription.h)/[cpp](Subscription.cpp) tracks if a given category is subscribed to or not.
 * [SimpleLogger.h](SimpleLogger.h)/[cpp](SimpleLogger.cpp) is a very simple printf style logger.
 * [main.cpp](main.cpp) is a sample program to demonstrate some of the logging features.
-* [LoggingPch.h](LoggingPch.h) is a helper file to include dependnecies for the example.
+* [LoggingPch.h](LoggingPch.h) is a helper file to include dependencies for the example.
 * [MakeAndRunDebug.sh](MakeAndRunDebug.sh)/[MakeAndRunRelease.sh](MakeAndRunRelease.sh) are scripts that builds and runs the project with logging enabled/disabled at the compile stage.
