@@ -10,5 +10,5 @@ Here's a quick rundown of the systems
 * [Tweener](/Tweener) is a simple tweening system I wrote, mainly to facilitate smooth transitions in UI code.
 
 #### Improvements / Notes
-* Most of this code was written prior to C++11 availablity, so you're going to see a lot of template meta-magic.  If I were to write some of these today, I would likely take advantage of C++11's features to simplify the code.  Variadic templates and lambdas would simplify a lot of the code here.
+* Most of this code was written prior to C++11 availability, so you're going to see a lot of template meta-magic.  If I were to write some of these today, I would likely take advantage of C++11's features to simplify the code.  Variadic templates and lambdas would simplify a lot of the code here.
 * Some of these systems(especially in logging) may seem like going overboard with optimization and macro/template programming, but in game development every cycle counts.  You typically operate at 30/60 frames per second, and with VR you need even higher frame rates, so you only have 16 milliseconds(or less) per frame to do EVERYTHING.  Release builds must strip away anything that isn't relavant to the final product.

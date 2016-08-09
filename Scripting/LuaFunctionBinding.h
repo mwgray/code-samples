@@ -26,7 +26,7 @@ namespace core {
         template<typename ReturnType>
         int pushReturnValue(lua_State* L, const ReturnType& returnValue);
 
-        virtual void intepretLuaParametersAndCall(lua_State* L) = 0;
+        virtual void interpretLuaParametersAndCall(lua_State* L) = 0;
     };
 
 } // namespace core

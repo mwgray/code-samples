@@ -18,7 +18,7 @@ namespace core {
 
         };
 
-        virtual void intepretLuaParametersAndCall(lua_State* L)
+        virtual void interpretLuaParametersAndCall(lua_State* L)
         {
             UNUSED_PARAM(L);
 
@@ -41,7 +41,7 @@ namespace core {
 
         };
 
-        virtual void intepretLuaParametersAndCall(lua_State* L)
+        virtual void interpretLuaParametersAndCall(lua_State* L)
         {
             (*mGlobalFunction)
                 (
@@ -64,7 +64,7 @@ namespace core {
 
         };
 
-        virtual void intepretLuaParametersAndCall(lua_State* L)
+        virtual void interpretLuaParametersAndCall(lua_State* L)
         {
             (*mGlobalFunction)
                 (
@@ -88,7 +88,7 @@ namespace core {
 
         };
 
-        virtual void intepretLuaParametersAndCall(lua_State* L)
+        virtual void interpretLuaParametersAndCall(lua_State* L)
         {
             (*mGlobalFunction)
                 (
@@ -113,7 +113,7 @@ namespace core {
 
         };
 
-        virtual void intepretLuaParametersAndCall(lua_State* L)
+        virtual void interpretLuaParametersAndCall(lua_State* L)
         {
             (*mGlobalFunction)
                 (
@@ -139,7 +139,7 @@ namespace core {
 
         };
 
-        virtual void intepretLuaParametersAndCall(lua_State* L)
+        virtual void interpretLuaParametersAndCall(lua_State* L)
         {
             (*mGlobalFunction)
                 (

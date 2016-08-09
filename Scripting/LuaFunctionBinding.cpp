@@ -35,7 +35,7 @@ namespace core {
                 parameterContext =  lua_tothread(L, -1);
             }
             
-            intepretLuaParametersAndCall(parameterContext);
+            interpretLuaParametersAndCall(parameterContext);
         }
     }
 

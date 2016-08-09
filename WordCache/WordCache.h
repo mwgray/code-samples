@@ -15,7 +15,7 @@ namespace core {
     public:
         struct Match
         {
-            unsigned int phraseIndex; // phrase's index in wordcache
+            unsigned int phraseIndex; // phrase's index in word cache
             unsigned int phraseInTextUnicodeIndex; // Number of UTF-8 characters preceding phrase in text (not the byte index)
         };
 

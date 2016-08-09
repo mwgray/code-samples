@@ -7,7 +7,7 @@ I used [yEd](https://www.yworks.com/products/yed) to create dependency graphs vi
 [Here](BootupDependencyGraph.png) is an example of a graph. Each node represents a [Process](/Process) sub-class, and dependencies are represented by arrows.  If a arrow points to a group, then all processes in that group must complete first.  This specific graph was used for logging into our instant messaging system [Doki-Doki Mail](https://www.youtube.com/watch?v=H7hFijr5v-c).  Some details:  
 * The __Core Setup__ group at the left grabs the Facebook ID and sets up Google analytics.
 * The __Load From CDN__ has no dependencies, as it is loading resources from a server, so it can start right away.
-* The __Fetch From Server__ pulls a bunch of relavent data from our server to the runtime.  Since we need a Facebook ID for this, it is dependent on the Core Setup group
+* The __Fetch From Server__ pulls a bunch of relavant data from our server to the runtime.  Since we need a Facebook ID for this, it is dependent on the Core Setup group
 * The __Data Setup__ group uses all the user and content fetched from the server to load the final UI and start the app.
  
 Since there are a lot of small tasks, and each of them are a http hit, the dependency graph can execute all these tasks concurrently, and resolve dependencies when they come back completed.  

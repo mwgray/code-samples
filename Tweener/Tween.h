@@ -99,7 +99,7 @@ namespace core {
         // the current time of the tween
         float mTime;
 
-        // the final time of the tween, when mTime >= mFinaltime, it is complete
+        // the final time of the tween, when mTime >= mFinalTime, it is complete
         float mFinalTime;
 
         // callbacks for Start, Update, Complete
@@ -110,7 +110,7 @@ namespace core {
         // the TweenEquation used to update the tweened parameters
         TweenEquation::Signature equation;
 
-        // list of paramters to update, there can be multiple ones tie to the same tween, ie, x, y, z or r,b,g,a
+        // list of parameters to update, there can be multiple ones tie to the same tween, ie, x, y, z or r,b,g,a
         typedef std::list<Param> ParamList;
         ParamList params;
 

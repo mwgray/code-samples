@@ -12,9 +12,9 @@ At first glance the binding code is a bit to take in.  This is mainly because th
 Summaries of the files in this folder: 
 
 * [LuaBindingGameMode](LuaBindingGameMode.cpp) and [LuaContextTests](LuaContextTests.cpp) are good places to see how the user would use these classes.
-* [LuaScriptManager.h](LuaScriptManager.h)/[cpp](LuaScriptManager.cpp) is the entry point for most users.  Calling LuaScriptManagerLuaScriptManager::Instance().GetContext("context") will return a LuaContext, which you can then use to bind functions to.  You can then call LuaScriptManagerexecuteScriptLuaScriptManager on a LuaContext to run any script, with the bound functions exposed to lua script.
-* [LuaContext.h](LuaContext.h)/[cpp](LuaContext.cpp)- exposes a lot of templated functions for binding global and class functions.  Note it can handle scope chains, so you can bind LuaContext "object.object.function"LuaContext  and it will bind approrpriately.
-* [LuaFunctionBinding.h](LuaFunctionBinding.h) is where a lot of the meat is.  LuaFucntionBinding is a base class for templated sub-classes.
+* [LuaScriptManager.h](LuaScriptManager.h)/[cpp](LuaScriptManager.cpp) is the entry point for most users.  Calling LuaScriptManagerLuaScriptManager::Instance().GetContext("context") will return a LuaContext, which you can then use to bind functions to.  You can then call `executeScript` on a LuaContext to run any script, with the bound functions exposed to lua script.
+* [LuaContext.h](LuaContext.h)/[cpp](LuaContext.cpp)- exposes a lot of templated functions for binding global and class functions.  Note it can handle scope chains, so you can bind LuaContext "object.object.function"LuaContext  and it will bind appropriately.
+* [LuaFunctionBinding.h](LuaFunctionBinding.h) is where a lot of the meat is.  LuaFunctionBinding is a base class for templated sub-classes.
 * [LuaFunctionBinding.cpp](LuaFunctionBinding.cpp) uses partial template specialization to extract parameters from a lua function call and inject a return value into the lua runtime when the C++ function is complete.  Using templates enforces parameter types on the lua side, so there's no implicit types when going from C++ to lua.
 * [LuaFunctionBinding.h](LuaFunctionBinding.h) is the base class for three types of function bindings.  Most of these are just a group of template functions varying with the parameter counts of 0 to 5.  They setup the parameter injection and return value extraction.
   * [LuaMemberFunctionBindings.h](LuaMemberFunctionBindings.h) is for binding to class member functions.

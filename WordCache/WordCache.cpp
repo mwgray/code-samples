@@ -56,22 +56,22 @@ namespace core {
             while (phraseInText)
             {
                 // look up adjacent characters
-                const char* nextCharAddr = phraseInText + phraseLen;
-                U32 nextChar = Utf8::Decode(nextCharAddr);
+                const char* nextCharAddress = phraseInText + phraseLen;
+                U32 nextChar = Utf8::Decode(nextCharAddress);
 
                 sinfo("Word Cache", "  Found match at index: '%d'", phraseInText - text);
 
-                const char* prevCharAddr;
+                const char* prevCharAddress;
                 U32 prevChar;
                 if (phraseInText == text)
                 {
-                    prevCharAddr = 0;
+                    prevCharAddress = 0;
                     prevChar = 0;
                 }
                 else
                 {
-                    prevCharAddr = Utf8::PrevChar(phraseInText);
-                    prevChar = Utf8::Decode(prevCharAddr);
+                    prevCharAddress = Utf8::PrevChar(phraseInText);
+                    prevChar = Utf8::Decode(prevCharAddress);
                 }
 
                 // accept or reject match based on further criteria:
@@ -96,8 +96,8 @@ namespace core {
                 // 3) Reject contractions.
                 //      - ex: reject "can" when it's part of "can't"
                 else if (prevChar == '\'' &&
-                         prevCharAddr != text &&
-                         iswalpha((wint_t)Utf8::Decode(Utf8::PrevChar(prevCharAddr)))) // check left
+                         prevCharAddress != text &&
+                         iswalpha((wint_t)Utf8::Decode(Utf8::PrevChar(prevCharAddress)))) // check left
                 {
                     sinfo("Word Cache", "  REJECTED because it is the right part of a contraction.");
 
@@ -105,8 +105,8 @@ namespace core {
 
                 }
                 else if (nextChar == '\'' &&
-                         nextCharAddr != textEnd &&
-                         iswalpha((wint_t)Utf8::Decode(Utf8::NextChar(nextCharAddr)))) // check right
+                         nextCharAddress != textEnd &&
+                         iswalpha((wint_t)Utf8::Decode(Utf8::NextChar(nextCharAddress)))) // check right
                 {
                     isMatch = false;
 
@@ -131,7 +131,7 @@ namespace core {
                     const Match m = {phraseIdx, phraseInTextUnicodeIdx};
                     matches.push_back(m);
 
-                    phraseInText = nextCharAddr;
+                    phraseInText = nextCharAddress;
 
                     sinfo("Word Cache", "  Source string is now %s", text);
                 }

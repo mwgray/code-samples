@@ -7,6 +7,6 @@ A larger use case example for this class is for indexing a giant file blob.  You
 Summaries of the files in this folder: 
 
 * [CompactStringRelease.h](CompactStringRelease.h)/[cpp](CompactStringRelease.cpp) is the simpler version of compact string. It calculate the checksum on assignment and discards string data.
-* [CompactStringDebug.h](CompactStringDebug.h)/[cpp](CompactStringDebug.cpp) is the a more comple version. It performs the same as the release variant, but keeps the string data around.  To save additional memory when keeping string data around, I use a map from checksum to string data.  This eliminates storing the same string more than once. It also does some validation and checks for hash collisions.
+* [CompactStringDebug.h](CompactStringDebug.h)/[cpp](CompactStringDebug.cpp) is the a more complete version. It performs the same as the release variant, but keeps the string data around.  To save additional memory when keeping string data around, I use a map from checksum to string data.  This eliminates storing the same string more than once. It also does some validation and checks for hash collisions.
 * [CompactString.h](CompactString.h) is just a pre-processor controlled typedef to determine which variant of the string to use based on the compile target.
 * [FNV1.h](FNV1.h)/[cpp](FNV1.cpp) is the hashing algorithm used to calculate the checksum
