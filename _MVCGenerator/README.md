@@ -1,7 +1,7 @@
 # Model View Controller Generator
 
 # DISCLAIMER 
-This code isn't very well commented or documented.  I included it because it's the kind of thing I really like doing, creating tools tha simplify some of the tedious aspects of day-to-day programming.  If have looked at my other samples and you are still interested in how my coding brain works, go for it!  But do check out my other samples first, they are much more coherent :-)
+This code isn't very well commented or documented.  I included it because it's the kind of thing I really like doing, creating tools tha simplify some of the tedious aspects of day-to-day programming.  If have looked at my other samples and you are still interested in how my coding brain works, go for it!  But do check out my other samples first, they are much more coherent :smile:
 
 ####Overview
 
